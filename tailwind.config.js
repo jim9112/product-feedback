@@ -6,6 +6,8 @@ module.exports = {
       'button-primary': '#AD1FEA',
       'text-white': '#FFFFFF',
       'text-grey': '#F2F4FE',
+      'text-secondary': '#3A4374',
+      'text-secondary-light': '#647196',
       'bg-dark': '#373F68',
     },
     fontFamily: {

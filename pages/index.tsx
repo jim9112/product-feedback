@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <Toolbar />
-      <main className='px-6 grid grid-cols-1 gap-4'>
+      <main className='px-6 pt-8 pb-14 grid grid-cols-1 gap-4'>
         {productRequests &&
           productRequests.map((request) => (
             <ProductRequest key={request.id} request={request} />

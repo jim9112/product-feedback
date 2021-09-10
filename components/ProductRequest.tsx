@@ -7,9 +7,9 @@ interface IProps {
 
 const ProductRequest = ({ request }: IProps) => {
   return (
-    <div className='bg-text-white'>
-      <h1>{request.title}</h1>
-      <p>{request.description}</p>
+    <div className='bg-text-white text-sm p-6 rounded-xl'>
+      <h1 className='font-bold text-text-secondary'>{request.title}</h1>
+      <p className='text-text-secondary-light'>{request.description}</p>
     </div>
   );
 };
