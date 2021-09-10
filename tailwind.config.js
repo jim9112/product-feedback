@@ -8,6 +8,9 @@ module.exports = {
       'text-grey': '#F2F4FE',
       'bg-dark': '#373F68',
     },
+    fontFamily: {
+      primary: ['Jost', 'sans-serif'],
+    },
     extend: {
       backgroundImage: (theme) => ({
         'header-mobile': "url('/suggestions/mobile/background-header.png')",
