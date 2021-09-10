@@ -1,7 +1,15 @@
 const Toolbar = () => {
   return (
     <div>
-      <h1 className='text-red-500'>Toolbar</h1>
+      <label htmlFor='sortOptions'>
+        Sort by:
+        <select name='sortOptions' id='sortOptions'>
+          <option value='mostUpvotes'>Most Upvotes</option>
+          <option value='leastUpvotes'>Least Upvotes</option>
+          <option value='mostComments'>Most Comments</option>
+          <option value='leastComments'>Least Comments</option>
+        </select>
+      </label>
     </div>
   );
 };
