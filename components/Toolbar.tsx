@@ -2,8 +2,8 @@ import Button from './Button';
 
 const Toolbar = () => {
   return (
-    <div className='bg-bg-dark'>
-      <label className='text-text-grey' htmlFor='sortOptions'>
+    <div className='bg-bg-dark px-6 py-2 grid grid-flow-col items-center'>
+      <label className='text-text-grey text-sm' htmlFor='sortOptions'>
         Sort by:
         <select
           className='bg-bg-dark text-text-white'
