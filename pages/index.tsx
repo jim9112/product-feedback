@@ -10,6 +10,7 @@ import data from '../lib/content/data.json';
 type IRequest = {
   id: number;
   title: string;
+  description: string;
 }[];
 
 const Home: NextPage = () => {
@@ -27,8 +28,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <Toolbar />
-      <main>
-        <h1 className='text-red-500'>Product Feedback App</h1>
+      <main className='px-6 grid grid-cols-1 gap-4'>
         {productRequests &&
           productRequests.map((request) => (
             <ProductRequest key={request.id} request={request} />
