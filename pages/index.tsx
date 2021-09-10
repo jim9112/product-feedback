@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import Header from '../components/header';
+import Header from '../components/Header';
+import Toolbar from '../components/Toolbar';
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon-32x32.png' />
       </Head>
       <Header />
+      <Toolbar />
       <main>
         <h1 className='text-red-500'>Product Feedback App</h1>
       </main>
