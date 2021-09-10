@@ -10,12 +10,10 @@ import data from '../lib/content/data.json';
 type IRequest = {
   id: number;
   title: string;
-};
+}[];
 
 const Home: NextPage = () => {
-  const [productRequests, setProductRequests] = useState<IRequest[] | null>(
-    null
-  );
+  const [productRequests, setProductRequests] = useState<IRequest | null>(null);
   useEffect(() => {
     console.log(data.productRequests);
     setProductRequests(data.productRequests);
