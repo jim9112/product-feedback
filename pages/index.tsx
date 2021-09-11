@@ -13,6 +13,7 @@ type IRequest = {
   description: string;
   category: string;
   upvotes: number;
+  comments: {}[];
 }[];
 
 const Home: NextPage = () => {
