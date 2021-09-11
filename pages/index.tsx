@@ -11,6 +11,8 @@ type IRequest = {
   id: number;
   title: string;
   description: string;
+  category: string;
+  upvotes: number;
 }[];
 
 const Home: NextPage = () => {
