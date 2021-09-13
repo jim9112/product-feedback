@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import hamburger from '../public/shared/mobile/icon-hamburger.svg';
+import { useState } from 'react';
+import FilterMenu from './FilterMenu';
+
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header>
-      <div className='bg-header-mobile sm:bg-header-tablet md:bg-header-desktop bg-no-repeat bg-cover grid grid-flow-col px-7 py-4'>
+      <div className='relative h-20 bg-header-mobile sm:bg-header-tablet md:bg-header-desktop bg-no-repeat bg-cover grid grid-flow-col px-7 py-4'>
         <div className=''>
           <h2 className='text-base text-text-white font-bold'>
             Frontend Mentor
@@ -13,9 +17,15 @@ const Header = () => {
 
         <div className='sm:hidden grid justify-end items-center'>
           <div>
-            <Image src={hamburger} alt='hamburger' />
+            <Image
+              className='cursor-pointer'
+              src={hamburger}
+              alt='hamburger'
+              onClick={() => setIsOpen(!isOpen)}
+            />
           </div>
         </div>
+        <FilterMenu isOpen={isOpen} />
       </div>
     </header>
   );
