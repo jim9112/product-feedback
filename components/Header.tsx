@@ -25,7 +25,7 @@ const Header = () => {
             />
           </div>
         </div>
-        <FilterMenu isOpen={isOpen} />
+        <FilterMenu isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </header>
   );
