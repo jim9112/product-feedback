@@ -6,7 +6,7 @@ const Toolbar = () => {
       <label className='text-text-grey text-sm' htmlFor='sortOptions'>
         Sort by:
         <select
-          className='bg-bg-dark text-text-white'
+          className='bg-bg-dark text-text-white font-bold'
           name='sortOptions'
           id='sortOptions'
         >

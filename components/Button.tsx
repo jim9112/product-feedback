@@ -24,7 +24,7 @@ const Button = ({ type, content, color, cursor, size }: IProps) => {
     <button
       className={`${styles.colors[color]} ${
         cursor ? styles.cursor[cursor] : 'cursor-default'
-      } ${styles.size[size]} text-text-grey rounded-xl`}
+      } ${styles.size[size]} text-text-grey rounded-xl font-bold`}
       type={type}
     >
       {content}
