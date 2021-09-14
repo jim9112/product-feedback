@@ -5,9 +5,10 @@ import Tag from './Tag';
 interface IProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  statusCount: Record<string, number>;
 }
 
-const FilterMenu = ({ isOpen, setIsOpen }: IProps) => {
+const FilterMenu = ({ isOpen, setIsOpen, statusCount }: IProps) => {
   const handleClick = (e: React.SyntheticEvent) => {
     const element = e.target as HTMLElement;
     if (element.id === 'menuContainer') setIsOpen(!isOpen);
@@ -26,6 +27,27 @@ const FilterMenu = ({ isOpen, setIsOpen }: IProps) => {
           {categorys.tags.map((tag, i) => (
             <Tag key={i} category={tag} />
           ))}
+        </div>
+        <div className='bg-text-white rounded-lg p-6'>
+          <div>
+            <h2>Roadmap</h2>
+            <p>view</p>
+            <ul className='text-text-secondary-light'>
+              <li>
+                Planned{' '}
+                {statusCount && statusCount.planned ? statusCount.planned : 0}
+              </li>
+              <li>
+                In-Progress{' '}
+                {statusCount && statusCount['in-progress']
+                  ? statusCount['in-progress']
+                  : 0}
+              </li>
+              <li>
+                Live {statusCount && statusCount.live ? statusCount.live : 0}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

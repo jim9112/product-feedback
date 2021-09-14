@@ -3,7 +3,11 @@ import hamburger from '../public/shared/mobile/icon-hamburger.svg';
 import { useState } from 'react';
 import FilterMenu from './FilterMenu';
 
-const Header = () => {
+interface IProps {
+  statusCount: Record<string, number>;
+}
+
+const Header = ({ statusCount }: IProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header>
@@ -25,7 +29,11 @@ const Header = () => {
             />
           </div>
         </div>
-        <FilterMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        <FilterMenu
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          statusCount={statusCount}
+        />
       </div>
     </header>
   );
