@@ -4,7 +4,7 @@ import { useState } from 'react';
 import FilterMenu from './FilterMenu';
 
 interface IProps {
-  statusCount: Record<string, number>;
+  statusCount: Record<string, number> | undefined;
 }
 
 const Header = ({ statusCount }: IProps) => {

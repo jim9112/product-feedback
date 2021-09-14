@@ -5,7 +5,7 @@ import Tag from './Tag';
 interface IProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  statusCount: Record<string, number>;
+  statusCount: Record<string, number> | undefined;
 }
 
 const FilterMenu = ({ isOpen, setIsOpen, statusCount }: IProps) => {
