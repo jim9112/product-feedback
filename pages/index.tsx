@@ -1,11 +1,12 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import ProductRequest from '../components/ProductRequest';
 import Toolbar from '../components/Toolbar';
 import data from '../lib/content/data.json';
+import FeedbackContext from '../lib/context/feedback-context';
 
 type IRequest = {
   id: number;
@@ -17,13 +18,19 @@ type IRequest = {
 }[];
 
 const Home: NextPage = () => {
-  const [productRequests, setProductRequests] = useState<IRequest | null>(null);
+  const { productRequests, setProductRequests } = useContext<IRequest | {}>(
+    FeedbackContext
+  );
+  // const [productRequests, setProductRequests] = useState<IRequest | null>(null);
   const [statusCount, setStatusCount] = useState<Record<string, number>>();
   const status: Record<string, number> = {};
-  console.log(status);
+
+  // add data from JSON file to state
   useEffect(() => {
     setProductRequests(data.productRequests);
   }, []);
+
+  // count element statuses
   useEffect(() => {
     data.productRequests.forEach((element: { status: string }) => {
       if (status[element.status]) {
@@ -34,6 +41,7 @@ const Home: NextPage = () => {
     });
     setStatusCount(status);
   }, []);
+
   return (
     <div className='bg-text-grey min-h-screen'>
       <Head>
