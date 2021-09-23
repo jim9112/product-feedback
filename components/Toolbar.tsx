@@ -22,6 +22,7 @@ const Toolbar = () => {
         color='primary'
         // cursor='pointer'
         size='small'
+        clickAction='addFeedback'
       />
     </div>
   );

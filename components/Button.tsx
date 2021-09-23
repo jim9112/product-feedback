@@ -1,9 +1,17 @@
+import router, { useRouter } from 'next/router';
+import addFeedback from '../pages/add-feedback';
+
 interface IProps {
   type: 'button' | 'submit';
   content: string;
   color: 'primary';
   cursor?: 'default' | 'pointer';
   size: 'small';
+  clickAction?: string;
+}
+
+interface IOptions {
+  [key: string]: () => void;
 }
 
 const styles = {
@@ -19,13 +27,28 @@ const styles = {
   },
 };
 
-const Button = ({ type, content, color, cursor, size }: IProps) => {
+const options: IOptions = {
+  addFeedback: function () {
+    router.push('/add-feedback');
+  },
+};
+
+const Button = ({
+  type,
+  content,
+  color,
+  cursor,
+  size,
+  clickAction,
+}: IProps) => {
+  const router = useRouter();
   return (
     <button
       className={`${styles.colors[color]} ${
         cursor ? styles.cursor[cursor] : 'cursor-default'
       } ${styles.size[size]} text-text-grey rounded-xl font-bold`}
       type={type}
+      onClick={options[`${clickAction}`]}
     >
       {content}
     </button>
