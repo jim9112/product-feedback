@@ -22,12 +22,10 @@ const Home: NextPage = () => {
   const status: Record<string, number> = {};
   console.log(status);
   useEffect(() => {
-    console.log(data.productRequests);
     setProductRequests(data.productRequests);
   }, []);
   useEffect(() => {
     data.productRequests.forEach((element: { status: string }) => {
-      console.log(element.status);
       if (status[element.status]) {
         status[element.status] += 1;
       } else {
