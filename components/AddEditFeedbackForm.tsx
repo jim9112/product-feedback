@@ -1,9 +1,23 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Button from '../components/Button';
 
+enum CategoryEnum {
+  UI = 'ui',
+  UX = 'UX',
+  Enhancement = 'Enhancement',
+  Bug = 'Bug',
+  Feature = 'Feature',
+}
+
+interface IFormInput {
+  feedbackTitle: string;
+  feedbackDetail: string;
+  category: CategoryEnum;
+}
+
 const AddEditFeedbackForm = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: IFormInput) => console.log(data);
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
       <label className='text-sm text-text-secondary font-bold'>
