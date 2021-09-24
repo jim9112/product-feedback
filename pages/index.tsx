@@ -26,9 +26,9 @@ const Home: NextPage = () => {
   const status: Record<string, number> = {};
 
   // add data from JSON file to state
-  useEffect(() => {
-    setProductRequests(data.productRequests);
-  }, []);
+  // useEffect(() => {
+  //   setProductRequests(data.productRequests);
+  // }, []);
 
   // count element statuses
   useEffect(() => {

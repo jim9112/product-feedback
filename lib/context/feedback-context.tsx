@@ -1,5 +1,5 @@
-import { createContext, useState } from 'react';
-
+import { createContext, useEffect, useState } from 'react';
+import data from '../../lib/content/data.json';
 const FeedbackContext = createContext({});
 
 type IRequest = {
@@ -13,6 +13,10 @@ type IRequest = {
 
 const FeedbackContextProvider = ({ children }: any) => {
   const [productRequests, setProductRequests] = useState<IRequest | null>(null);
+  // add data from JSON file to state
+  useEffect(() => {
+    setProductRequests(data.productRequests);
+  }, []);
   const context = {
     productRequests,
     setProductRequests,

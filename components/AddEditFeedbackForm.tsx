@@ -17,6 +17,9 @@ interface IFormInput {
 
 const AddEditFeedbackForm = () => {
   const { register, handleSubmit } = useForm();
+
+  //   todo: use submit to save new data to state
+
   const onSubmit = (data: IFormInput) => console.log(data);
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
