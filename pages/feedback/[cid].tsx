@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
+import BackButton from '../../components/BackButton';
 import ProductRequest from '../../components/ProductRequest';
 
 import FeedbackContext from '../../lib/context/feedback-context';
@@ -24,7 +25,7 @@ const Feedback = () => {
 
   return (
     <div className='bg-text-grey min-h-screen'>
-      <h1>Test</h1>
+      <BackButton />
       {feedback && <ProductRequest request={feedback} />}
     </div>
   );
