@@ -20,7 +20,7 @@ const Toolbar = () => {
         type='button'
         content='+ Add Feedback'
         color='primary'
-        // cursor='pointer'
+        cursor='pointer'
         size='small'
         clickAction='addFeedback'
       />
