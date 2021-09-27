@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import BackButton from '../../components/BackButton';
 import ProductRequest from '../../components/ProductRequest';
+import Comments from '../../components/Comments';
 
 import FeedbackContext from '../../lib/context/feedback-context';
 
@@ -24,9 +25,10 @@ const Feedback = () => {
   }, [productRequests, cid]);
 
   return (
-    <div className='bg-text-grey min-h-screen'>
+    <div className='bg-text-grey min-h-screen p-6'>
       <BackButton />
       {feedback && <ProductRequest request={feedback} />}
+      {feedback?.comments && <Comments comments={feedback.comments || null} />}
     </div>
   );
 };
