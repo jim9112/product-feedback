@@ -3,6 +3,12 @@ import SingleComment from './SingleComment';
 interface IProps {
   comments: {
     id: number;
+    content: string;
+    user: {
+      image: string;
+      name: string;
+      username: string;
+    };
   }[];
 }
 
@@ -13,7 +19,7 @@ const Comments = ({ comments }: IProps) => {
       <h1 className='font-bold text-lg text-text-secondary'>
         {comments.length} Comments
       </h1>
-      <div>
+      <div className='divide-y-2 divide-solid divide-text-grey'>
         {comments &&
           comments.map((comment) => (
             <SingleComment key={comment.id} comment={comment} />

@@ -13,19 +13,25 @@ interface IProps {
 
 const SingleComment = ({ comment }: IProps) => {
   return (
-    <div>
-      <div className='flex relative gap-4'>
+    <div className='py-6'>
+      <div className='flex relative gap-4 mb-4'>
         <div className='w-10 h-10 relative rounded-full overflow-hidden'>
           <Image src={comment.user.image} alt='users picture' layout='fill' />
         </div>
         <div>
-          <p>{comment.user.name}</p>
-          <p>@{comment.user.username}</p>
+          <p className='text-text-secondary text-sm font-bold'>
+            {comment.user.name}
+          </p>
+          <p className='text-sm text-text-secondary-light'>
+            @{comment.user.username}
+          </p>
         </div>
-        <div className='self-center absolute right-0'>Reply</div>
+        <div className='self-center absolute right-0 font-semibold text-text-blue text-sm cursor-pointer'>
+          Reply
+        </div>
       </div>
       <div>
-        <p>{comment.content}</p>
+        <p className='text-text-secondary-light text-sm'>{comment.content}</p>
       </div>
     </div>
   );

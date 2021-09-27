@@ -6,11 +6,24 @@ import Comments from '../../components/Comments';
 
 import FeedbackContext from '../../lib/context/feedback-context';
 
+interface IFeedback {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  upvotes: number;
+  comments: {
+    id: number;
+    content: string;
+    user: { image: string; name: string; username: string };
+  }[];
+}
+
 const Feedback = () => {
   const { productRequests, setProductRequests } = useContext<{}[] | {}>(
     FeedbackContext
   );
-  const [feedback, setFeedback] = useState();
+  const [feedback, setFeedback] = useState<IFeedback>();
   const router = useRouter();
   const { cid } = router.query;
   useEffect(() => {
@@ -27,8 +40,12 @@ const Feedback = () => {
   return (
     <div className='bg-text-grey min-h-screen p-6'>
       <BackButton />
-      {feedback && <ProductRequest request={feedback} />}
-      {feedback?.comments && <Comments comments={feedback.comments || null} />}
+      <div className='flex flex-col gap-y-6'>
+        {feedback && <ProductRequest request={feedback} />}
+        {feedback?.comments && (
+          <Comments comments={feedback.comments || null} />
+        )}
+      </div>
     </div>
   );
 };
