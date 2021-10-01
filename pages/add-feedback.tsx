@@ -6,7 +6,7 @@ const addFeedback = () => {
     <div className='bg-text-grey min-h-screen px-6 pt-8'>
       <BackButton />
       <div className='bg-text-white p-6'>
-        <h1 className='font-bold text-text-secondary text-lg'>
+        <h1 className='font-bold text-text-secondary text-lg mb-6'>
           Create New Feedback
         </h1>
         <AddEditFeedbackForm />

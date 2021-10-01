@@ -4,7 +4,7 @@ import addFeedback from '../pages/add-feedback';
 interface IProps {
   type: 'button' | 'submit';
   content: string;
-  color: 'primary';
+  color: 'primary' | 'secondary';
   cursor?: 'default' | 'pointer';
   size: 'small';
   clickAction?: string;
@@ -17,6 +17,7 @@ interface IOptions {
 const styles = {
   colors: {
     primary: 'bg-button-primary',
+    secondary: 'bg-text-secondary',
   },
   cursor: {
     pointer: 'cursor-pointer',
@@ -46,7 +47,7 @@ const Button = ({
     <button
       className={`${styles.colors[color]} ${
         cursor ? styles.cursor[cursor] : 'cursor-default'
-      } ${styles.size[size]} text-text-grey rounded-xl font-bold`}
+      } ${styles.size[size]} text-text-grey rounded-xl font-bold `}
       type={type}
       onClick={options[`${clickAction}`]}
     >
