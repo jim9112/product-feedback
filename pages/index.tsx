@@ -15,12 +15,11 @@ type IRequest = {
   category: string;
   upvotes: number;
   comments: {}[];
-}[];
+};
 
 const Home: NextPage = () => {
-  const { productRequests, setProductRequests } = useContext<IRequest | {}>(
-    FeedbackContext
-  );
+  const { productRequests, setProductRequests } =
+    useContext<any>(FeedbackContext);
   // const [productRequests, setProductRequests] = useState<IRequest | null>(null);
   const [statusCount, setStatusCount] = useState<Record<string, number>>();
   const status: Record<string, number> = {};
@@ -35,6 +34,7 @@ const Home: NextPage = () => {
       }
     });
     setStatusCount(status);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       <Toolbar />
       <main className='px-6 pt-8 pb-14 grid grid-cols-1 gap-4'>
         {productRequests &&
-          productRequests.map((request) => (
+          productRequests.map((request: IRequest) => (
             <ProductRequest key={request.id} request={request} />
           ))}
       </main>

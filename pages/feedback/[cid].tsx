@@ -21,10 +21,11 @@ interface IFeedback {
 }
 
 const Feedback = () => {
-  const { productRequests, setProductRequests } = useContext(FeedbackContext);
+  const { productRequests, setProductRequests } =
+    useContext<any>(FeedbackContext);
   const [feedback, setFeedback] = useState<IFeedback>();
   const router = useRouter();
-  const { cid } = router.query;
+  const { cid }: any = router.query;
   useEffect(() => {
     // find product feedback that matches the ID passed through query
     function getComment() {

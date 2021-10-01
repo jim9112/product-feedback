@@ -21,9 +21,9 @@ type IRequest = {
   }[];
 }[];
 
-const FeedbackContext = createContext<IRequest | {}>({});
+const FeedbackContext = createContext({});
 const FeedbackContextProvider = ({ children }: any) => {
-  const [productRequests, setProductRequests] = useState<IRequest | null>(null);
+  const [productRequests, setProductRequests] = useState<any>(null);
   // add data from JSON file to state
   useEffect(() => {
     setProductRequests(data.productRequests);
