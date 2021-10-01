@@ -21,16 +21,16 @@ interface IFeedback {
 }
 
 const Feedback = () => {
-  const { productRequests, setProductRequests } = useContext<{}[] | {}>(
-    FeedbackContext
-  );
+  const { productRequests, setProductRequests } = useContext(FeedbackContext);
   const [feedback, setFeedback] = useState<IFeedback>();
   const router = useRouter();
   const { cid } = router.query;
   useEffect(() => {
     // find product feedback that matches the ID passed through query
     function getComment() {
-      const comment = productRequests.find((el) => el.id === parseInt(cid));
+      const comment = productRequests.find(
+        (el: IFeedback) => el.id === parseInt(cid)
+      );
       setFeedback(comment);
     }
     if (productRequests && productRequests.length > 0) {
