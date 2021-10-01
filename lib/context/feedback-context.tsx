@@ -8,7 +8,18 @@ type IRequest = {
   description: string;
   category: string;
   upvotes: number;
-  comments: {}[];
+  comments: {
+    id: number;
+    content: string;
+    user: { image: string; name: string; username: string };
+    replies?:
+      | {
+          content: string;
+          replyingTo: string;
+          user: { image: string; name: string; username: string };
+        }[]
+      | undefined;
+  }[];
 }[];
 
 const FeedbackContextProvider = ({ children }: any) => {

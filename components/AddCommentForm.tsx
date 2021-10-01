@@ -8,14 +8,23 @@ interface IFormInput {
 
 const AddCommentForm = () => {
   const { register, handleSubmit, watch } = useForm();
+
+  //   To Do: save form data to state
   const onSubmit = (data: IFormInput) => console.log(data);
+
+  //   watch the comment field of form to get amount of characters used
   let commentData = watch('comment', '');
   return (
     <div className='bg-text-white p-6 rounded-xl'>
       <h1 className='text-lg text-text-secondary font-bold'>Add Comment</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <textarea {...register('comment')} />
-        <div className='flex items-center'>
+        <textarea
+          style={{ resize: 'none' }}
+          placeholder='Type your comment here'
+          className='bg-text-grey rounded-md w-full'
+          {...register('comment', { required: true, maxLength: 250 })}
+        />
+        <div className='flex items-center justify-between'>
           <p>{250 - commentData.length} Characters left</p>
           <Button
             type='submit'

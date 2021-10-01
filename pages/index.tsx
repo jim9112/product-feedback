@@ -25,11 +25,6 @@ const Home: NextPage = () => {
   const [statusCount, setStatusCount] = useState<Record<string, number>>();
   const status: Record<string, number> = {};
 
-  // add data from JSON file to state
-  // useEffect(() => {
-  //   setProductRequests(data.productRequests);
-  // }, []);
-
   // count element statuses
   useEffect(() => {
     data.productRequests.forEach((element: { status: string }) => {
