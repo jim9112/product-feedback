@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import BackButton from '../../components/BackButton';
 import ProductRequest from '../../components/ProductRequest';
 import Comments from '../../components/Comments';
+import AddCommentForm from '../../components/AddCommentForm';
 
 import FeedbackContext from '../../lib/context/feedback-context';
 
@@ -45,6 +46,7 @@ const Feedback = () => {
         {feedback?.comments && (
           <Comments comments={feedback.comments || null} />
         )}
+        <AddCommentForm />
       </div>
     </div>
   );
