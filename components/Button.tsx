@@ -1,5 +1,4 @@
 import router, { useRouter } from 'next/router';
-import addFeedback from '../pages/add-feedback';
 
 interface IProps {
   type: 'button' | 'submit';
