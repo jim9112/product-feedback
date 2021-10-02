@@ -6,42 +6,16 @@ import Comments from '../../components/Comments';
 import AddCommentForm from '../../components/AddCommentForm';
 import { useRecoilState } from 'recoil';
 import { productRequestState } from '../../lib/atoms';
-
-interface IFeedback {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  upvotes: number;
-  comments?: {
-    id: number;
-    content: string;
-    user: { image: string; name: string; username: string };
-    replies?: {
-      content: string;
-      replyingTo: string;
-      user: { image: string; name: string; username: string };
-    }[];
-  }[];
-}
+import useGetProductFeedback from '../../lib/hooks/useGetProductFeedback';
 
 const Feedback = () => {
   const [productRequests, setProductRequests] =
     useRecoilState(productRequestState);
 
-  const [feedback, setFeedback] = useState<IFeedback>();
   const router = useRouter();
   const { cid }: any = router.query;
-  useEffect(() => {
-    // find product feedback that matches the ID passed through query
-    function getComment() {
-      const comment = productRequests.find((el) => el.id === parseInt(cid));
-      setFeedback(comment);
-    }
-    if (productRequests && productRequests.length > 0) {
-      getComment();
-    }
-  }, [productRequests, cid]);
+  const { feedback } = useGetProductFeedback(productRequests, cid);
+  // To Do: move to custom hook
 
   return (
     <div className='bg-text-grey min-h-screen p-6'>
