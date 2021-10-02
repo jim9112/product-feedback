@@ -14,11 +14,13 @@ const Header = ({ statusCount }: IProps) => {
   return (
     <header className='grid grid-cols-1 sm:grid-cols-3 sm:gap-x-3 sm:px-10 sm:pt-12 sm:pb-10'>
       <div className='relative h-20 sm:h-full sm:rounded-lg bg-header-mobile sm:bg-header-tablet md:bg-header-desktop bg-no-repeat bg-cover grid grid-flow-col px-7 py-4'>
-        <div className=''>
-          <h2 className='text-base text-text-white font-bold'>
+        <div className='flex flex-col sm:justify-end'>
+          <h2 className='text-base sm:text-xl text-text-white font-bold'>
             Frontend Mentor
           </h2>
-          <h3 className='text-xs text-text-grey'>Feedback Board</h3>
+          <h3 className='text-xs sm:text-base text-text-grey'>
+            Feedback Board
+          </h3>
         </div>
 
         {/* hamburger menu icon for mobile layout */}
