@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import BackButton from '../../components/BackButton';
 import ProductRequest from '../../components/ProductRequest';
 import Comments from '../../components/Comments';
@@ -9,13 +8,16 @@ import { productRequestState } from '../../lib/atoms';
 import useGetProductFeedback from '../../lib/hooks/useGetProductFeedback';
 
 const Feedback = () => {
+  // get product requests from state
   const [productRequests, setProductRequests] =
     useRecoilState(productRequestState);
 
+  // get query from router
   const router = useRouter();
   const { cid }: any = router.query;
+
+  // get individual feedback based on selection and router query
   const { feedback } = useGetProductFeedback(productRequests, cid);
-  // To Do: move to custom hook
 
   return (
     <div className='bg-text-grey min-h-screen p-6'>
