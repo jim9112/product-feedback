@@ -2,25 +2,16 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useContext, useEffect, useState } from 'react';
+import { atom, useRecoilValue } from 'recoil';
 import Header from '../components/Header';
 import ProductRequest from '../components/ProductRequest';
 import Toolbar from '../components/Toolbar';
+import { productRequestState } from '../lib/atoms';
 import data from '../lib/content/data.json';
-import FeedbackContext from '../lib/context/feedback-context';
-
-type IRequest = {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  upvotes: number;
-  comments: {}[];
-};
 
 const Home: NextPage = () => {
-  const { productRequests, setProductRequests } =
-    useContext<any>(FeedbackContext);
-  // const [productRequests, setProductRequests] = useState<IRequest | null>(null);
+  const productRequests = useRecoilValue(productRequestState);
+
   const [statusCount, setStatusCount] = useState<Record<string, number>>();
   const status: Record<string, number> = {};
 
@@ -48,7 +39,7 @@ const Home: NextPage = () => {
       <Toolbar />
       <main className='px-6 pt-8 pb-14 grid grid-cols-1 gap-4'>
         {productRequests &&
-          productRequests.map((request: IRequest) => (
+          productRequests.map((request) => (
             <ProductRequest key={request.id} request={request} />
           ))}
       </main>

@@ -1,12 +1,12 @@
 import 'tailwindcss/tailwind.css';
 import type { AppProps } from 'next/app';
-import { FeedbackContextProvider } from '../lib/context/feedback-context';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <FeedbackContextProvider>
+    <RecoilRoot>
       <Component {...pageProps} />
-    </FeedbackContextProvider>
+    </RecoilRoot>
   );
 }
 export default MyApp;

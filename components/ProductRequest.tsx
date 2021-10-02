@@ -10,7 +10,7 @@ interface IProps {
     description: string;
     category: string;
     upvotes: number;
-    comments: {}[];
+    comments?: {}[];
   };
 }
 

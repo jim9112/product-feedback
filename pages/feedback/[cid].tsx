@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import BackButton from '../../components/BackButton';
 import ProductRequest from '../../components/ProductRequest';
 import Comments from '../../components/Comments';
 import AddCommentForm from '../../components/AddCommentForm';
-
-import FeedbackContext from '../../lib/context/feedback-context';
+import { useRecoilState } from 'recoil';
+import { productRequestState } from '../../lib/atoms';
 
 interface IFeedback {
   id: number;
@@ -13,25 +13,29 @@ interface IFeedback {
   description: string;
   category: string;
   upvotes: number;
-  comments: {
+  comments?: {
     id: number;
     content: string;
     user: { image: string; name: string; username: string };
+    replies?: {
+      content: string;
+      replyingTo: string;
+      user: { image: string; name: string; username: string };
+    }[];
   }[];
 }
 
 const Feedback = () => {
-  const { productRequests, setProductRequests } =
-    useContext<any>(FeedbackContext);
+  const [productRequests, setProductRequests] =
+    useRecoilState(productRequestState);
+
   const [feedback, setFeedback] = useState<IFeedback>();
   const router = useRouter();
   const { cid }: any = router.query;
   useEffect(() => {
     // find product feedback that matches the ID passed through query
     function getComment() {
-      const comment = productRequests.find(
-        (el: IFeedback) => el.id === parseInt(cid)
-      );
+      const comment = productRequests.find((el) => el.id === parseInt(cid));
       setFeedback(comment);
     }
     if (productRequests && productRequests.length > 0) {
