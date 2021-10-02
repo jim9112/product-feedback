@@ -1,13 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import { useContext, useEffect, useState } from 'react';
-import { atom, useRecoilValue } from 'recoil';
+import { useEffect, useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import Header from '../components/Header';
 import ProductRequest from '../components/ProductRequest';
 import Toolbar from '../components/Toolbar';
 import { productRequestState } from '../lib/atoms';
-import data from '../lib/content/data.json';
 
 const Home: NextPage = () => {
   const productRequests = useRecoilValue(productRequestState);
@@ -15,9 +13,10 @@ const Home: NextPage = () => {
   const [statusCount, setStatusCount] = useState<Record<string, number>>();
   const status: Record<string, number> = {};
 
+  // To Do: move to custom hook
   // count element statuses
   useEffect(() => {
-    data.productRequests.forEach((element: { status: string }) => {
+    productRequests.forEach((element: { status: string }) => {
       if (status[element.status]) {
         status[element.status] += 1;
       } else {
