@@ -11,6 +11,8 @@ module.exports = {
       'text-secondary-light': '#647196',
       'text-blue': '#4661E6',
       'bg-dark': '#373F68',
+      orangish: '#F49F85',
+      'sky-blue': '#62BCFA',
     },
     fontFamily: {
       primary: ['Jost', 'sans-serif'],
