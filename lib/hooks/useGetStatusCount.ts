@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useGetStatusCount = (productRequests: []) => {
+const useGetStatusCount = (productRequests: { status: string }[]) => {
   const [statusCount, setStatusCount] = useState<Record<string, number>>();
   useEffect(() => {
     const tempStatus: Record<string, number> = {};

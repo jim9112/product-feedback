@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import Header from '../components/Header';
 import ProductRequest from '../components/ProductRequest';
@@ -11,9 +10,6 @@ import useGetStatusCount from '../lib/hooks/useGetStatusCount';
 const Home: NextPage = () => {
   const productRequests = useRecoilValue(productRequestState);
   const { statusCount } = useGetStatusCount(productRequests);
-
-  // To Do: move to custom hook
-  // count element statuses
 
   return (
     <div className='bg-text-grey min-h-screen grid grid-flow-row lg:grid-flow-col lg:gap-x-7 lg:px-16 lg:pt-28'>
