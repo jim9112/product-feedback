@@ -1,12 +1,19 @@
 import Image from 'next/image';
 import Button from './Button';
 import iconSuggestions from '../public/suggestions/icon-suggestions.svg';
+import { useRecoilState } from 'recoil';
+import { productRequestFilterState } from '../lib/atoms';
 
 interface IProps {
   suggestionAmount: number;
 }
 
 const Toolbar = ({ suggestionAmount }: IProps) => {
+  const [filter, setFilter] = useRecoilState(productRequestFilterState);
+  const updateFilter = ({ target: { value } }) => {
+    setFilter(value);
+    console.log(value);
+  };
   return (
     <div className=''>
       <div className='bg-bg-dark px-6 py-2 sm:py-3 grid grid-flow-col items-center sm:rounded-lg'>
@@ -24,11 +31,12 @@ const Toolbar = ({ suggestionAmount }: IProps) => {
             className='bg-bg-dark text-text-white font-bold'
             name='sortOptions'
             id='sortOptions'
+            onChange={updateFilter}
           >
-            <option value='mostUpvotes'>Most Upvotes</option>
-            <option value='leastUpvotes'>Least Upvotes</option>
-            <option value='mostComments'>Most Comments</option>
-            <option value='leastComments'>Least Comments</option>
+            <option value='Most Upvotes'>Most Upvotes</option>
+            <option value='Least Upvotes'>Least Upvotes</option>
+            <option value='Most Comments'>Most Comments</option>
+            <option value='Least Comments'>Least Comments</option>
           </select>
         </label>
         <Button
