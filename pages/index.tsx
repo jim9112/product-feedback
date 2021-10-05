@@ -6,26 +6,14 @@ import Header from '../components/Header';
 import ProductRequest from '../components/ProductRequest';
 import Toolbar from '../components/Toolbar';
 import { productRequestState } from '../lib/atoms';
+import useGetStatusCount from '../lib/hooks/useGetStatusCount';
 
 const Home: NextPage = () => {
   const productRequests = useRecoilValue(productRequestState);
-
-  const [statusCount, setStatusCount] = useState<Record<string, number>>();
-  const status: Record<string, number> = {};
+  const { statusCount } = useGetStatusCount(productRequests);
 
   // To Do: move to custom hook
   // count element statuses
-  useEffect(() => {
-    productRequests.forEach((element: { status: string }) => {
-      if (status[element.status]) {
-        status[element.status] += 1;
-      } else {
-        status[element.status] = 1;
-      }
-    });
-    setStatusCount(status);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className='bg-text-grey min-h-screen grid grid-flow-row lg:grid-flow-col lg:gap-x-7 lg:px-16 lg:pt-28'>
