@@ -1,9 +1,23 @@
+import Image from 'next/image';
 import Button from './Button';
+import iconSuggestions from '../public/suggestions/icon-suggestions.svg';
 
-const Toolbar = () => {
+interface IProps {
+  suggestionAmount: number;
+}
+
+const Toolbar = ({ suggestionAmount }: IProps) => {
   return (
     <div className='sm:px-10'>
-      <div className='bg-bg-dark px-6 py-2 grid grid-flow-col items-center sm:rounded-lg'>
+      <div className='bg-bg-dark px-6 py-2 sm:py-3 grid grid-flow-col items-center sm:rounded-lg'>
+        <div className='hidden sm:flex items-center gap-x-4'>
+          <div>
+            <Image src={iconSuggestions} alt='Suggestions Icon' />
+          </div>
+          <h3 className='font-bold text-lg text-text-white'>
+            {suggestionAmount} Suggestions
+          </h3>
+        </div>
         <label className='text-text-grey text-sm' htmlFor='sortOptions'>
           Sort by:
           <select

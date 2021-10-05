@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon-32x32.png' />
       </Head>
       <Header statusCount={statusCount} />
-      <Toolbar />
+      <Toolbar suggestionAmount={productRequests.length} />
       <main className='px-6 pt-8 pb-14 grid grid-cols-1 gap-4'>
         {productRequests &&
           productRequests.map((request) => (
