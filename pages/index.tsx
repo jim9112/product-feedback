@@ -5,11 +5,13 @@ import Header from '../components/Header';
 import ProductRequest from '../components/ProductRequest';
 import Toolbar from '../components/Toolbar';
 import { productRequestState } from '../lib/atoms';
+import { filteredProductRequestState } from '../lib/selectors';
 import useGetStatusCount from '../lib/hooks/useGetStatusCount';
 
 const Home: NextPage = () => {
   const productRequests = useRecoilValue(productRequestState);
   const { statusCount } = useGetStatusCount(productRequests);
+  const filteredRequestList = useRecoilValue(filteredProductRequestState);
 
   return (
     <div className='bg-text-grey min-h-screen grid grid-flow-row lg:grid-flow-col lg:gap-x-7 lg:px-16 lg:pt-28'>
@@ -22,8 +24,8 @@ const Home: NextPage = () => {
       <main className=' sm:px-10 lg:px-0 pb-14 '>
         <Toolbar suggestionAmount={productRequests.length} />
         <div className='px-6 pt-8 sm:px-0 grid grid-cols-1 gap-4'>
-          {productRequests &&
-            productRequests.map((request) => (
+          {filteredRequestList &&
+            filteredRequestList.map((request) => (
               <ProductRequest key={request.id} request={request} />
             ))}
         </div>
