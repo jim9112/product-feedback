@@ -17,8 +17,8 @@ interface IProps {
 const ProductRequest = ({ request }: IProps) => {
   const router = useRouter();
   return (
-    <div className='bg-text-white text-sm p-6 rounded-xl grid grid-cols-2'>
-      <div className='grid grid-flow-row gap-2 col-span-2 mb-4'>
+    <div className='bg-text-white text-sm p-6 sm:px-8 sm:py-7 rounded-xl grid grid-cols-2 sm:grid-cols-5'>
+      <div className='grid grid-flow-row gap-2 col-span-2 sm:col-span-3 sm:col-start-2 mb-4 sm:mb-0'>
         <h1
           className='font-bold text-text-secondary cursor-pointer'
           onClick={() => router.push(`/feedback/${request.id}`)}
