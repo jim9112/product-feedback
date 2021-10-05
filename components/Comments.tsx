@@ -13,7 +13,6 @@ interface IProps {
 }
 
 const Comments = ({ comments }: IProps) => {
-  console.log(comments);
   return (
     <div className='bg-text-white text-sm p-6 rounded-xl'>
       <h1 className='font-bold text-lg text-text-secondary'>

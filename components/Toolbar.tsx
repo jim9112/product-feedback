@@ -12,7 +12,6 @@ const Toolbar = ({ suggestionAmount }: IProps) => {
   const [filter, setFilter] = useRecoilState(productRequestFilterState);
   const updateFilter = ({ target: { value } }) => {
     setFilter(value);
-    console.log(value);
   };
   return (
     <div className=''>
@@ -32,6 +31,7 @@ const Toolbar = ({ suggestionAmount }: IProps) => {
             name='sortOptions'
             id='sortOptions'
             onChange={updateFilter}
+            value={filter}
           >
             <option value='Most Upvotes'>Most Upvotes</option>
             <option value='Least Upvotes'>Least Upvotes</option>

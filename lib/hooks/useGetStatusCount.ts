@@ -5,7 +5,6 @@ const useGetStatusCount = (productRequests: { status: string }[]) => {
   useEffect(() => {
     const tempStatus: Record<string, number> = {};
     productRequests.forEach((element: { status: string }) => {
-      console.log(element.status);
       if (tempStatus[element.status]) {
         tempStatus[element.status] += 1;
       } else {
