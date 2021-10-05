@@ -7,11 +7,11 @@ interface IProps {
 
 const CommentsTag = ({ comments }: IProps) => {
   return (
-    <div className='grid grid-flow-col sm:col-start-5 sm:row-start-1 gap-1 w-max font-bold text-text-secondary justify-self-end sm:self-center'>
+    <div className='grid grid-flow-col sm:col-start-5 sm:row-start-1 gap-1 w-max font-bold text-text-secondary justify-self-end sm:self-center place-items-center'>
       <div>
         <Image src={commentIcon} alt='Comment Icon' />
       </div>
-      <p>
+      <p className='sm:text-base'>
         {comments ? (
           comments?.length
         ) : (
