@@ -12,8 +12,8 @@ interface IProps {
 const Header = ({ statusCount }: IProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className='grid grid-cols-1 sm:grid-cols-3 sm:gap-x-3 sm:px-10 sm:pt-12 sm:pb-10'>
-      <div className='relative h-20 sm:h-full sm:rounded-lg bg-header-mobile sm:bg-header-tablet md:bg-header-desktop bg-no-repeat bg-cover grid grid-flow-col px-7 py-4'>
+    <header className='grid grid-flow-col sm:auto-cols-fr sm:grid-flow-col lg:auto-rows-max lg:grid-flow-row sm:gap-x-3 lg:gap-y-6 sm:px-10 lg:px-0 sm:pt-12 lg:pt-0 sm:pb-10'>
+      <div className='relative h-20 sm:h-full lg:h-36 sm:rounded-lg bg-header-mobile sm:bg-header-tablet lg:bg-header-desktop bg-no-repeat bg-cover grid grid-flow-col px-7 py-4'>
         <div className='flex flex-col sm:justify-end'>
           <h2 className='text-base sm:text-xl text-text-white font-bold'>
             Frontend Mentor
