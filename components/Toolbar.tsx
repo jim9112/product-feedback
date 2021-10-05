@@ -8,7 +8,7 @@ interface IProps {
 
 const Toolbar = ({ suggestionAmount }: IProps) => {
   return (
-    <div className='sm:px-10'>
+    <div className=''>
       <div className='bg-bg-dark px-6 py-2 sm:py-3 grid grid-flow-col items-center sm:rounded-lg'>
         <div className='hidden sm:flex items-center gap-x-4'>
           <div>
