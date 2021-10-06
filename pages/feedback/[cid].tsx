@@ -21,7 +21,10 @@ const Feedback = () => {
 
   return (
     <div className='bg-text-grey min-h-screen p-6'>
-      <BackButton />
+      <div className='mb-8'>
+        <BackButton color='dark' />
+      </div>
+
       <div className='flex flex-col gap-y-6'>
         {feedback && <ProductRequest request={feedback} />}
         {feedback?.comments && (

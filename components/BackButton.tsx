@@ -2,17 +2,26 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import iconArrowLeft from '../public/shared/icon-arrow-left.svg';
 
-const BackButton = () => {
+interface IProps {
+  color: 'light' | 'dark';
+}
+
+const styles = {
+  dark: 'text-text-secondary',
+  light: 'text-text-white',
+};
+
+const BackButton = ({ color }: IProps) => {
   const router = useRouter();
   return (
     <div
-      className='flex align-middle max-w-max gap-4 font-bold text-text-secondary text-sm mb-8 cursor-pointer'
+      className='flex align-middle max-w-max gap-4 font-bold text-sm cursor-pointer'
       onClick={() => router.back()}
     >
       <div>
         <Image src={iconArrowLeft} alt='left arrow icon' />
       </div>
-      <span className=''>Go Back</span>
+      <span className={`${styles[color]}`}>Go Back</span>
       {/* <Link href='/'>Go Back</Link> */}
     </div>
   );
