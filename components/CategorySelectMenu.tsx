@@ -10,8 +10,6 @@ const CategorySelectMenu = () => {
     const target = e.target as HTMLElement;
     if (target.id !== 'tagContainer') {
       setSelectedTag(target.textContent);
-      console.log(target.textContent);
-      console.log(selectedTag);
     }
   };
   return (
@@ -22,7 +20,7 @@ const CategorySelectMenu = () => {
     >
       {/* returns a tag component for every tag listed in the categorys.json file */}
       {categorys.tags.map((tag, i) => (
-        <Tag key={i} category={tag} />
+        <Tag key={i} category={tag} selectedTag={selectedTag} />
       ))}
     </div>
   );

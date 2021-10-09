@@ -5,6 +5,7 @@ import {
   tagFilterState,
 } from './atoms';
 
+// This state is the sorted product feedback list based on the dropdown selection
 export const filteredProductRequestState = selector({
   key: 'filteredProductRequestState',
   get: ({ get }) => {
@@ -32,6 +33,7 @@ export const filteredProductRequestState = selector({
   },
 });
 
+// This state combines the sorted state with the category filters to output a filtered and sorted list
 export const categoryProductRequestState = selector({
   key: 'categoryProductRequestState',
   get: ({ get }) => {
