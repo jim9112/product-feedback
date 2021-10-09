@@ -3,6 +3,7 @@ import Button from './Button';
 import iconSuggestions from '../public/suggestions/icon-suggestions.svg';
 import { useRecoilState } from 'recoil';
 import { productRequestFilterState } from '../lib/atoms';
+import React from 'react';
 
 interface IProps {
   suggestionAmount: number;
@@ -10,8 +11,9 @@ interface IProps {
 
 const Toolbar = ({ suggestionAmount }: IProps) => {
   const [filter, setFilter] = useRecoilState(productRequestFilterState);
-  const updateFilter = ({ target: { value } }) => {
-    setFilter(value);
+  const updateFilter = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLFormElement;
+    setFilter(target.value);
   };
   return (
     <div className=''>
