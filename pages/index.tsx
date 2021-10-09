@@ -7,7 +7,6 @@ import Toolbar from '../components/Toolbar';
 import { productRequestState } from '../lib/atoms';
 import { categoryProductRequestState } from '../lib/selectors';
 import useGetStatusCount from '../lib/hooks/useGetStatusCount';
-import { useEffect } from 'react';
 
 const Home: NextPage = () => {
   const productRequests = useRecoilValue(productRequestState);
