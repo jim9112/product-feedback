@@ -1,5 +1,9 @@
 import { selector } from 'recoil';
-import { productRequestState, productRequestFilterState } from './atoms';
+import {
+  productRequestState,
+  productRequestFilterState,
+  tagFilterState,
+} from './atoms';
 
 export const filteredProductRequestState = selector({
   key: 'filteredProductRequestState',
@@ -24,6 +28,24 @@ export const filteredProductRequestState = selector({
         return mutatedList.sort((a, b) => {
           return (a.comments?.length || 0) - (b.comments?.length || 0);
         });
+    }
+  },
+});
+
+export const categoryProductRequestState = selector({
+  key: 'categoryProductRequestState',
+  get: ({ get }) => {
+    const requestList = get(filteredProductRequestState);
+    const listFilter = get(tagFilterState);
+    if (listFilter === 'All') {
+      return requestList;
+    } else {
+      const newList = requestList?.filter((request) => {
+        if (listFilter.toLowerCase() === request.category) {
+          return request;
+        }
+      });
+      return newList;
     }
   },
 });

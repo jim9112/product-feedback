@@ -16,5 +16,5 @@ export const productRequestFilterState = atom({
 // state that holds any tag filters being applied to the product request display
 export const tagFilterState = atom({
   key: 'tagFilterState',
-  default: 'all',
+  default: 'All',
 });
