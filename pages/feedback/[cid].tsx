@@ -6,6 +6,7 @@ import AddCommentForm from '../../components/AddCommentForm';
 import { useRecoilState } from 'recoil';
 import { productRequestState } from '../../lib/atoms';
 import useGetProductFeedback from '../../lib/hooks/useGetProductFeedback';
+import Button from '../../components/Button';
 
 const Feedback = () => {
   // get product requests from state
@@ -21,8 +22,15 @@ const Feedback = () => {
 
   return (
     <div className='bg-text-grey min-h-screen p-6'>
-      <div className='mb-8'>
+      <div className='mb-8 flex justify-between items-center'>
         <BackButton color='dark' />
+        <Button
+          color='lightBlue'
+          size='small'
+          type='button'
+          content='Edit Feedback'
+          cursor='pointer'
+        />
       </div>
 
       <div className='flex flex-col gap-y-6'>

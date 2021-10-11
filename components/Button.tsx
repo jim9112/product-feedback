@@ -3,7 +3,7 @@ import router, { useRouter } from 'next/router';
 interface IProps {
   type: 'button' | 'submit';
   content: string;
-  color: 'primary' | 'secondary';
+  color: 'primary' | 'secondary' | 'lightBlue';
   cursor?: 'default' | 'pointer';
   size: 'small';
   clickAction?: string;
@@ -17,6 +17,7 @@ const styles = {
   colors: {
     primary: 'bg-button-primary',
     secondary: 'bg-text-secondary',
+    lightBlue: 'bg-text-blue',
   },
   cursor: {
     pointer: 'cursor-pointer',
@@ -46,7 +47,7 @@ const Button = ({
     <button
       className={`${styles.colors[color]} ${
         cursor ? styles.cursor[cursor] : 'cursor-default'
-      } ${styles.size[size]} text-text-grey rounded-xl font-bold `}
+      } ${styles.size[size]} text-text-grey rounded-xl font-bold`}
       type={type}
       onClick={options[`${clickAction}`]}
     >
