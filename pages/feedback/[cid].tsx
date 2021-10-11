@@ -21,7 +21,7 @@ const Feedback = () => {
   const { feedback } = useGetProductFeedback(productRequests, cid);
 
   return (
-    <div className='bg-text-grey min-h-screen p-6'>
+    <div className='bg-text-grey min-h-screen p-6 md:p-10'>
       <div className='mb-8 flex justify-between items-center'>
         <BackButton color='dark' />
         <Button
