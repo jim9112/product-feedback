@@ -32,7 +32,6 @@ const Feedback = () => {
           cursor='pointer'
         />
       </div>
-
       <div className='flex flex-col gap-y-6'>
         {feedback && <ProductRequest request={feedback} />}
         {feedback?.comments && (
