@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import BackButton from '../../components/BackButton';
+import BackButton from '../../components/global/BackButton';
 import ProductRequest from '../../components/ProductRequest';
 import Comments from '../../components/Comments';
 import AddCommentForm from '../../components/AddCommentForm';

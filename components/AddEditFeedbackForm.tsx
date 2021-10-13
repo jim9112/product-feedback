@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Button from '../components/Button';
+import Button from './Button';
 
 enum CategoryEnum {
   UI = 'ui',

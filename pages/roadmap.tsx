@@ -1,4 +1,4 @@
-import BackButton from '../components/BackButton';
+import BackButton from '../components/global/BackButton';
 import useSortRoadmapRequests from '../lib/hooks/useSortRoadmapRequests';
 import RoadmapRequestCard from '../components/roadmap/RoadmapRequestCard';
 

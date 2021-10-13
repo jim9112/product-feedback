@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import iconArrowLeft from '../public/shared/icon-arrow-left.svg';
+import iconArrowLeft from '../../public/shared/icon-arrow-left.svg';
 
 interface IProps {
   color: 'light' | 'dark';
