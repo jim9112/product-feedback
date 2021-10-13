@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRecoilState } from 'recoil';
-import categorys from '../lib/content/categorys.json';
-import Tag from './global/Tag';
-import { tagFilterState } from '../lib/atoms';
+import categorys from '../../lib/content/categorys.json';
+import Tag from '../global/Tag';
+import { tagFilterState } from '../../lib/atoms';
 
 const CategorySelectMenu = () => {
   const [selectedTag, setSelectedTag] = useRecoilState(tagFilterState);

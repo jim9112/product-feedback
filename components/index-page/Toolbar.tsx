@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Button from './Button';
-import iconSuggestions from '../public/suggestions/icon-suggestions.svg';
+import Button from '../global/Button';
+import iconSuggestions from '../../public/suggestions/icon-suggestions.svg';
 import { useRecoilState } from 'recoil';
-import { productRequestFilterState } from '../lib/atoms';
+import { productRequestFilterState } from '../../lib/atoms';
 import React from 'react';
 
 interface IProps {

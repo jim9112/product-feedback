@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import BackButton from '../../components/global/BackButton';
-import ProductRequest from '../../components/ProductRequest';
-import Comments from '../../components/Comments';
-import AddCommentForm from '../../components/AddCommentForm';
+import ProductRequest from '../../components/global/ProductRequest';
+import Comments from '../../components/individualFeedbackPage/Comments';
+import AddCommentForm from '../../components/forms/AddCommentForm';
 import { useRecoilState } from 'recoil';
 import { productRequestState } from '../../lib/atoms';
 import useGetProductFeedback from '../../lib/hooks/useGetProductFeedback';
-import Button from '../../components/Button';
+import Button from '../../components/global/Button';
 
 const Feedback = () => {
   // get product requests from state

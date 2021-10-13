@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import iconArrowUp from '../public/shared/icon-arrow-up.svg';
+import iconArrowUp from '../../public/shared/icon-arrow-up.svg';
 
 interface IProps {
   upvotes: number;

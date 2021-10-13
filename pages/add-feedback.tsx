@@ -1,5 +1,5 @@
 import BackButton from '../components/global/BackButton';
-import AddEditFeedbackForm from '../components/AddEditFeedbackForm';
+import AddEditFeedbackForm from '../components/forms/AddEditFeedbackForm';
 
 const addFeedback = () => {
   return (

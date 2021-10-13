@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRecoilValue } from 'recoil';
-import Header from '../components/Header';
-import ProductRequest from '../components/ProductRequest';
-import Toolbar from '../components/Toolbar';
+import Header from '../components/index-page/Header';
+import ProductRequest from '../components/global/ProductRequest';
+import Toolbar from '../components/index-page/Toolbar';
 import { productRequestState } from '../lib/atoms';
 import { categoryProductRequestState } from '../lib/selectors';
 import useGetStatusCount from '../lib/hooks/useGetStatusCount';

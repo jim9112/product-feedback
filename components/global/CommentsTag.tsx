@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import commentIcon from '../public/shared/icon-comments.svg';
+import commentIcon from '../../public/shared/icon-comments.svg';
 
 interface IProps {
   comments: {}[] | undefined;

@@ -1,4 +1,4 @@
-import SingleComment from './SingleComment';
+import SingleComment from '../global/SingleComment';
 
 interface IProps {
   comments: {

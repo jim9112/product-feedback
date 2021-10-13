@@ -1,6 +1,6 @@
 import BackButton from '../components/global/BackButton';
 import useSortRoadmapRequests from '../lib/hooks/useSortRoadmapRequests';
-import RoadmapRequestCard from '../components/roadmap/RoadmapRequestCard';
+import RoadmapRequestCard from '../components/roadmap-page/RoadmapRequestCard';
 
 const Roadmap = () => {
   // get lists of requests sorted by status

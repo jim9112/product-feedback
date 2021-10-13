@@ -1,7 +1,7 @@
 import router, { useRouter } from 'next/router';
 import CommentsTag from './CommentsTag';
 import LikesTag from './LikesTag';
-import Tag from './global/Tag';
+import Tag from './Tag';
 
 interface IProps {
   request: {
