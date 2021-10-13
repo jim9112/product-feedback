@@ -7,7 +7,7 @@ const Roadmap = () => {
   const { roadmapState } = useSortRoadmapRequests();
 
   return (
-    <div className='lg:px-44 lg:py-20'>
+    <div className='bg-text-grey min-h-screen lg:px-44 lg:py-20'>
       <header className='bg-bg-dark'>
         <BackButton color='light' />
         <h1>Roadmap Page</h1>

@@ -3,9 +3,22 @@ import { useRecoilValue } from 'recoil';
 import { productRequestState } from '../../lib/atoms';
 
 interface IRequests {
-  status: string;
-  title: string;
   id: number;
+  title: string;
+  category: string;
+  upvotes: number;
+  status: string;
+  description: string;
+  comments: {
+    id: number;
+    content: string;
+    user: { image: string; name: string; username: string };
+    replies?: {
+      content: string;
+      replyingTo: string;
+      user: { image: string; name: string; username: string };
+    }[];
+  }[];
 }
 interface ITempObj {
   planned: Array<IRequests>;
@@ -15,9 +28,11 @@ interface ITempObj {
 
 const useSortRoadmapRequests = () => {
   // get product requests from state
-  const productRequests = useRecoilValue<IRequests[] | null>(
+  const productRequests = useRecoilValue<IRequests[] | undefined>(
     productRequestState
   );
+
+  // state for three status categories of for roadmap display
   const [roadmapState, setRoadmapState] = useState<ITempObj | null>(null);
 
   useEffect(() => {
