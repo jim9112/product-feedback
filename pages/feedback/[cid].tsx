@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import BackButton from '../../components/global/BackButton';
 import ProductRequest from '../../components/global/ProductRequest';
-import Comments from '../../components/individualFeedbackPage/Comments';
+import Comments from '../../components/individual-feedback-page/Comments';
 import AddCommentForm from '../../components/forms/AddCommentForm';
 import { useRecoilState } from 'recoil';
 import { productRequestState } from '../../lib/atoms';
