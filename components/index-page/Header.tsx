@@ -3,7 +3,7 @@ import hamburger from '../../public/shared/mobile/icon-hamburger.svg';
 import { useState } from 'react';
 import FilterMenu from './FilterMenu';
 import CategorySelectMenu from './CategorySelectMenu';
-import RoadmapMenu from '../roadmap-page/RoadmapMenu';
+import RoadmapMenu from './RoadmapMenu';
 
 interface IProps {
   statusCount: Record<string, number> | undefined;

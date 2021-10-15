@@ -2,6 +2,7 @@ import BackButton from '../components/global/BackButton';
 import useSortRoadmapRequests from '../lib/hooks/useSortRoadmapRequests';
 import RoadmapRequestCard from '../components/roadmap-page/RoadmapRequestCard';
 import { useState } from 'react';
+import Button from '../components/global/Button';
 
 const Roadmap = () => {
   // get lists of requests sorted by status
@@ -14,11 +15,19 @@ const Roadmap = () => {
 
   return (
     <div className='bg-text-grey min-h-screen lg:px-44 lg:py-20'>
-      <header className='bg-bg-dark'>
-        <BackButton color='light' />
-        <h1>Roadmap Page</h1>
+      <header className='bg-bg-dark px-5 py-6 flex justify-between'>
+        <div>
+          <BackButton color='light' />
+          <h1 className='text-text-white font-bold text-lg'>Roadmap Page</h1>
+        </div>
+        <Button
+          type='button'
+          color='primary'
+          content='+ Add Feedback'
+          size='small'
+        />
       </header>
-      <div className='text-text-secondary grid grid-cols-3'>
+      <div className='text-text-secondary grid grid-cols-3 text-center py-5'>
         <div>
           <h2
             className='cursor-pointer md:pointer-events-none'

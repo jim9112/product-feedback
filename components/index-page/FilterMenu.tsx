@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import CategorySelectMenu from './CategorySelectMenu';
-import RoadmapMenu from '../roadmap-page/RoadmapMenu';
+import RoadmapMenu from './RoadmapMenu';
 
 interface IProps {
   isOpen: boolean;
