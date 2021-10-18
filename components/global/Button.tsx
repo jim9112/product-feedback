@@ -6,7 +6,7 @@ interface IProps {
   color: 'primary' | 'secondary' | 'lightBlue';
   cursor?: 'default' | 'pointer';
   size: 'small';
-  clickAction?: string;
+  clickAction?: 'addFeedback';
 }
 
 interface IOptions {

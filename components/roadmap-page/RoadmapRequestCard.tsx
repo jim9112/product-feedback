@@ -14,9 +14,14 @@ interface IPRops {
 }
 
 const RoadmapRequestCard = ({ request }: IPRops) => {
+  // Capitolize the first letter in each word in status
+  const captitolizedStatus = request.status
+    .split('-')
+    .map((word) => word[0].toUpperCase() + word.substr(1))
+    .join('-');
   return (
     <div className='bg-text-white rounded-lg'>
-      <p>{request.status}</p>
+      <p>{captitolizedStatus}</p>
       <h2>{request.title}</h2>
       <p>{request.description}</p>
       <Tag category={request.category} />

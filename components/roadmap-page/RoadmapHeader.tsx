@@ -13,6 +13,8 @@ const RoadmapHeader = () => {
         color='primary'
         content='+ Add Feedback'
         size='small'
+        clickAction='addFeedback'
+        cursor='pointer'
       />
     </header>
   );
