@@ -41,7 +41,11 @@ const RoadmapSingleCategory = ({
       {roadmapState &&
         roadmapState[category] &&
         roadmapState[category].map((request) => (
-          <RoadmapRequestCard key={request.id} request={request} />
+          <RoadmapRequestCard
+            key={request.id}
+            request={request}
+            category={category}
+          />
         ))}
     </div>
   );
