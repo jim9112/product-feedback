@@ -33,12 +33,19 @@ const RoadmapRequestCard = ({ request, category }: IPRops) => {
     <div className='bg-text-white rounded-lg '>
       <div className={`w-full h-2 rounded-t-lg ${styles[category]}`}></div>
       <div className='flex flex-col p-6 gap-y-4'>
-        <div>
-          <p>{captitolizedStatus}</p>
+        <div className='flex items-center gap-x-4'>
+          <div className={`h-2 w-2 rounded-full ${styles[category]}`}></div>
+          <p className='text-text-secondary-light text-sm'>
+            {captitolizedStatus}
+          </p>
         </div>
         <div className='flex flex-col gap-y-2'>
-          <h2 className='text-text-secondary text-sm'>{request.title}</h2>
-          <p>{request.description}</p>
+          <h2 className='text-text-secondary text-sm font-bold'>
+            {request.title}
+          </h2>
+          <p className='text-sm text-text-secondary-light'>
+            {request.description}
+          </p>
           <Tag category={request.category} />
         </div>
         <div className='flex justify-between'>
