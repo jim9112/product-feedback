@@ -35,8 +35,8 @@ const RoadmapSingleCategory = ({
   return (
     <div
       className={`${
-        displayCategoryState === category ? 'grid' : 'hidden'
-      } md:grid grid-cols-1 gap-y-4`}
+        displayCategoryState === category ? 'flex' : 'hidden'
+      } md:flex flex-col gap-y-4`}
     >
       {roadmapState &&
         roadmapState[category] &&
