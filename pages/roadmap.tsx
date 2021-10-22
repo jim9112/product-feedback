@@ -21,6 +21,7 @@ const Roadmap = () => {
       <RoadmapSelection
         roadmapState={roadmapState}
         setDisplayCategoryState={setDisplayCategoryState}
+        displayCategoryState={displayCategoryState}
       />
       {/* displays all of the feedback that is tagged as 'planned', 'live', or in progress */}
       <div className='text-text-secondary grid grid-cols-1 md:grid-cols-3 px-6'>
