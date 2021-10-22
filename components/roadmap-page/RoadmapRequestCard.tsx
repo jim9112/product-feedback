@@ -1,9 +1,11 @@
+import { useRouter } from 'next/router';
 import Tag from '../global/Tag';
 import LikesTag from '../global/LikesTag';
 import CommentsTag from '../global/CommentsTag';
 
 interface IPRops {
   request: {
+    id: number;
     title: string;
     status: string;
     description: string;
@@ -22,6 +24,7 @@ const styles = {
 };
 
 const RoadmapRequestCard = ({ request, category }: IPRops) => {
+  const router = useRouter();
   // Capitolize the first letter in each word in status
   const captitolizedStatus = request.status
     .split('-')
@@ -40,7 +43,10 @@ const RoadmapRequestCard = ({ request, category }: IPRops) => {
           </p>
         </div>
         <div className='flex flex-col gap-y-2'>
-          <h2 className='text-text-secondary text-sm font-bold'>
+          <h2
+            className='text-text-secondary text-sm font-bold cursor-pointer'
+            onClick={() => router.push(`/feedback/${request.id}`)}
+          >
             {request.title}
           </h2>
           <p className='text-sm text-text-secondary-light'>
