@@ -7,6 +7,12 @@ export const productRequestState = atom({
   default: data.productRequests,
 });
 
+// state for current user
+export const currentUserState = atom({
+  key: 'currentUserState',
+  default: data.currentUser,
+});
+
 // state that holds any filters being applied to the product request display
 export const productRequestFilterState = atom({
   key: 'productRequestFilterState',

@@ -1,8 +1,8 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Button from '../global/Button';
 import { productRequestState } from '../../lib/atoms';
 import { useRecoilState } from 'recoil';
-import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 enum CategoryEnum {
   UI = 'ui',
@@ -22,21 +22,19 @@ interface IFormInput {
 const AddEditFeedbackForm = () => {
   const { register, handleSubmit } = useForm();
   const [feedbackData, setFeedbackData] = useRecoilState(productRequestState);
+  const router = useRouter();
 
-  //   todo: use submit to save new data to state
-
-  useEffect(() => {
-    console.log(feedbackData);
-  }, [feedbackData]);
-
+  // use submit to save new data to state
+  // todo: move to custom hook
   const onSubmit = (data: IFormInput) => {
     const tempRequest = feedbackData;
     const formData = data;
     formData.id = Date.now();
-
     setFeedbackData([...tempRequest, formData]);
     console.log(formData);
+    router.back();
   };
+
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
       <label className='text-sm text-text-secondary font-bold mb-1'>
