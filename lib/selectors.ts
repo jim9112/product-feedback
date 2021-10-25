@@ -43,7 +43,7 @@ export const categoryProductRequestState = selector({
       return requestList;
     } else {
       const newList = requestList?.filter((request) => {
-        if (listFilter.toLowerCase() === request.category) {
+        if (listFilter.toLowerCase() === request.category.toLowerCase()) {
           return request;
         }
       });

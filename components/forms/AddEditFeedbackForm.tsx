@@ -1,5 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Button from '../global/Button';
+import { productRequestState } from '../../lib/atoms';
+import { useRecoilState } from 'recoil';
+import { useEffect } from 'react';
 
 enum CategoryEnum {
   UI = 'ui',
@@ -10,17 +13,30 @@ enum CategoryEnum {
 }
 
 interface IFormInput {
-  feedbackTitle: string;
-  feedbackDetail: string;
+  title: string;
+  description: string;
   category: CategoryEnum;
+  id?: number;
 }
 
 const AddEditFeedbackForm = () => {
   const { register, handleSubmit } = useForm();
+  const [feedbackData, setFeedbackData] = useRecoilState(productRequestState);
 
   //   todo: use submit to save new data to state
 
-  const onSubmit = (data: IFormInput) => console.log(data);
+  useEffect(() => {
+    console.log(feedbackData);
+  }, [feedbackData]);
+
+  const onSubmit = (data: IFormInput) => {
+    const tempRequest = feedbackData;
+    const formData = data;
+    formData.id = Date.now();
+
+    setFeedbackData([...tempRequest, formData]);
+    console.log(formData);
+  };
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
       <label className='text-sm text-text-secondary font-bold mb-1'>
@@ -32,7 +48,8 @@ const AddEditFeedbackForm = () => {
       </p>
       <input
         className='bg-text-grey mb-6 rounded-md'
-        {...register('feedbackTitle')}
+        required
+        {...register('title')}
       />
       <label className='text-sm text-text-secondary font-bold mb-1'>
         Category
@@ -58,8 +75,9 @@ const AddEditFeedbackForm = () => {
       </p>
       <textarea
         style={{ resize: 'none' }}
+        required
         className='bg-text-grey mb-6 rounded-md'
-        {...register('feedbackDetail')}
+        {...register('description')}
         cols={30}
         rows={5}
       ></textarea>

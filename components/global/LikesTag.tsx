@@ -11,7 +11,7 @@ const LikesTag = ({ upvotes }: IProps) => {
       <div className='grid items-center sm:w-2'>
         <Image src={iconArrowUp} alt='Up Arrow' />
       </div>
-      <p>{upvotes}</p>
+      <p>{upvotes || 0}</p>
     </div>
   );
 };
