@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Replies from './Replies';
 
 interface IProps {
   comment: {
@@ -8,6 +9,7 @@ interface IProps {
       name: string;
       username: string;
     };
+    replies: [];
   };
 }
 
@@ -33,6 +35,7 @@ const SingleComment = ({ comment }: IProps) => {
       <div>
         <p className='text-text-secondary-light text-sm'>{comment.content}</p>
       </div>
+      {comment.replies && <Replies replies={comment.replies} />}
     </div>
   );
 };
