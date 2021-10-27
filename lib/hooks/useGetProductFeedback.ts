@@ -10,6 +10,7 @@ interface IFeedback {
     content: string;
     user: { image: string; name: string; username: string };
     replies?: {
+      id: number;
       content: string;
       replyingTo: string;
       user: { image: string; name: string; username: string };
