@@ -55,7 +55,7 @@ const RoadmapRequestCard = ({ request, category }: IPRops) => {
           <Tag category={request.category} />
         </div>
         <div className='flex justify-between'>
-          <LikesTag upvotes={request.upvotes} />
+          <LikesTag upvotes={request.upvotes} feedbackID={request.id} />
           <CommentsTag comments={request.comments} />
         </div>
       </div>

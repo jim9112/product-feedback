@@ -31,7 +31,7 @@ const ProductRequest = ({ request }: IProps) => {
         <Tag category={request.category} />
       </div>
 
-      <LikesTag upvotes={request.upvotes} />
+      <LikesTag upvotes={request.upvotes} feedbackID={request.id} />
       <CommentsTag comments={request.comments} />
     </div>
   );
