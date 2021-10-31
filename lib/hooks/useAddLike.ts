@@ -5,7 +5,6 @@ const useAddLike = (feedbackID: number) => {
   const [feedbackState, setFeedbackState] = useRecoilState(productRequestState);
   const currentUser = useRecoilValue(currentUserState);
 
-  // To Do: identify who has liked the feedback and style like tag differently if current user liked it
   const addLike = () => {
     // get index of current feature request
     let index = feedbackState.findIndex(
