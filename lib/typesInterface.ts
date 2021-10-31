@@ -1,3 +1,11 @@
+enum CategoryEnum {
+  UI = 'ui',
+  UX = 'UX',
+  Enhancement = 'Enhancement',
+  Bug = 'Bug',
+  Feature = 'Feature',
+}
+
 export interface IFeedback {
   id: number;
   title: string;

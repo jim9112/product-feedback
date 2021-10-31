@@ -3,21 +3,7 @@ import Button from '../global/Button';
 import { productRequestState } from '../../lib/atoms';
 import { useRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
-
-enum CategoryEnum {
-  UI = 'ui',
-  UX = 'UX',
-  Enhancement = 'Enhancement',
-  Bug = 'Bug',
-  Feature = 'Feature',
-}
-
-interface IFormInput {
-  title: string;
-  description: string;
-  category: CategoryEnum;
-  id?: number;
-}
+import { IFeedback } from '../../lib/typesInterface';
 
 const AddEditFeedbackForm = () => {
   const { register, handleSubmit } = useForm();
@@ -26,7 +12,7 @@ const AddEditFeedbackForm = () => {
 
   // use submit to save new data to state
   // todo: move to custom hook
-  const onSubmit = (data: IFormInput) => {
+  const onSubmit = (data: IFeedback) => {
     const tempRequest = feedbackData;
     const formData = data;
     formData.id = Date.now();

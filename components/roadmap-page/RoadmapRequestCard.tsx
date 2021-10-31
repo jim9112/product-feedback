@@ -2,18 +2,10 @@ import { useRouter } from 'next/router';
 import Tag from '../global/Tag';
 import LikesTag from '../global/LikesTag';
 import CommentsTag from '../global/CommentsTag';
+import { IFeedback } from '../../lib/typesInterface';
 
 interface IProps {
-  request: {
-    id: number;
-    title: string;
-    status: string;
-    description: string;
-    category: string;
-    upvotes: number;
-    upvotedby?: [];
-    comments: {}[];
-  };
+  request: IFeedback;
   category: 'planned' | 'progress' | 'live';
 }
 

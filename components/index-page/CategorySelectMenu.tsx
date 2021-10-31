@@ -9,7 +9,7 @@ const CategorySelectMenu = () => {
   const clickHandler = (e: React.SyntheticEvent) => {
     const target = e.target as HTMLElement;
     if (target.id !== 'tagContainer') {
-      setSelectedTag(target.textContent);
+      setSelectedTag(target.textContent || 'All');
     }
   };
   return (
