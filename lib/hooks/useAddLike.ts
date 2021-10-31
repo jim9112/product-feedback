@@ -1,8 +1,11 @@
-import { useRecoilState } from 'recoil';
-import { productRequestState } from '../atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { productRequestState, currentUserState } from '../atoms';
 
 const useAddLike = (feedbackID: number) => {
   const [feedbackState, setFeedbackState] = useRecoilState(productRequestState);
+  const currentUser = useRecoilValue(currentUserState);
+
+  // To Do: identify who has liked the feedback and style like tag differently if current user liked it
   const addLike = () => {
     // get index of current feature request
     let index = feedbackState.findIndex(
@@ -12,6 +15,15 @@ const useAddLike = (feedbackID: number) => {
     // create temporary object with new upvote value
     const tempObj = { ...feedbackState[index] };
     tempObj.upvotes += 1;
+
+    // check if feature request has a list of users who upvoted it. If not create one and add current users username
+    if (tempObj.upvotedBy) {
+      tempObj.upvotedBy.push(currentUser.username);
+    } else {
+      tempObj.upvotedby = [currentUser.username];
+    }
+
+    console.log(tempObj);
 
     // map feedbackstate into temp array replacing edited feature request with edited temp object
     const tempArr = feedbackState.map((feedback, i) =>
