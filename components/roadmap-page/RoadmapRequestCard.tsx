@@ -11,6 +11,7 @@ interface IPRops {
     description: string;
     category: string;
     upvotes: number;
+    upvotedby?: [];
     comments: {}[];
   };
   category: 'planned' | 'progress' | 'live';
@@ -55,7 +56,11 @@ const RoadmapRequestCard = ({ request, category }: IPRops) => {
           <Tag category={request.category} />
         </div>
         <div className='flex justify-between'>
-          <LikesTag upvotes={request.upvotes} feedbackID={request.id} />
+          <LikesTag
+            upvotes={request.upvotes}
+            upvotedBy={request.upvotedby}
+            feedbackID={request.id}
+          />
           <CommentsTag comments={request.comments} />
         </div>
       </div>

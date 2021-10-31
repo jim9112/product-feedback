@@ -10,6 +10,7 @@ interface IProps {
     description: string;
     category: string;
     upvotes: number;
+    upvotedby?: [];
     comments?: {}[];
   };
 }
@@ -31,7 +32,11 @@ const ProductRequest = ({ request }: IProps) => {
         <Tag category={request.category} />
       </div>
 
-      <LikesTag upvotes={request.upvotes} feedbackID={request.id} />
+      <LikesTag
+        upvotes={request.upvotes}
+        upvotedBy={request.upvotedby}
+        feedbackID={request.id}
+      />
       <CommentsTag comments={request.comments} />
     </div>
   );
