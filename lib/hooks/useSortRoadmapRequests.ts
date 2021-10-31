@@ -1,34 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { productRequestState } from '../../lib/atoms';
+import { IFeedback } from '../typesInterface';
 
-interface IRequests {
-  id: number;
-  title: string;
-  category: string;
-  upvotes: number;
-  status: string;
-  description: string;
-  comments: {
-    id: number;
-    content: string;
-    user: { image: string; name: string; username: string };
-    replies?: {
-      content: string;
-      replyingTo: string;
-      user: { image: string; name: string; username: string };
-    }[];
-  }[];
-}
 interface ITempObj {
-  planned: Array<IRequests>;
-  progress: Array<IRequests>;
-  live: Array<IRequests>;
+  planned: Array<IFeedback>;
+  progress: Array<IFeedback>;
+  live: Array<IFeedback>;
 }
 
 const useSortRoadmapRequests = () => {
   // get product requests from state
-  const productRequests = useRecoilValue<IRequests[] | undefined>(
+  const productRequests = useRecoilValue<IFeedback[] | undefined>(
     productRequestState
   );
 

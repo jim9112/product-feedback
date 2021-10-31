@@ -3,7 +3,7 @@ import Tag from '../global/Tag';
 import LikesTag from '../global/LikesTag';
 import CommentsTag from '../global/CommentsTag';
 
-interface IPRops {
+interface IProps {
   request: {
     id: number;
     title: string;
@@ -24,7 +24,7 @@ const styles = {
   live: 'bg-sky-blue',
 };
 
-const RoadmapRequestCard = ({ request, category }: IPRops) => {
+const RoadmapRequestCard = ({ request, category }: IProps) => {
   const router = useRouter();
   // Capitolize the first letter in each word in status
   const captitolizedStatus = request.status

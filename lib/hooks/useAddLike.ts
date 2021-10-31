@@ -1,8 +1,10 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { productRequestState, currentUserState } from '../atoms';
+import { IFeedback } from '../typesInterface';
 
 const useAddLike = (feedbackID: number) => {
-  const [feedbackState, setFeedbackState] = useRecoilState(productRequestState);
+  const [feedbackState, setFeedbackState] =
+    useRecoilState<IFeedback[]>(productRequestState);
   const currentUser = useRecoilValue(currentUserState);
 
   const addLike = () => {
@@ -16,8 +18,8 @@ const useAddLike = (feedbackID: number) => {
     tempObj.upvotes += 1;
 
     // check if feature request has a list of users who upvoted it. If not create one and add current users username
-    if (tempObj.upvotedBy) {
-      tempObj.upvotedBy.push(currentUser.username);
+    if (tempObj.upvotedby) {
+      tempObj.upvotedby.push(currentUser.username);
     } else {
       tempObj.upvotedby = [currentUser.username];
     }

@@ -1,22 +1,5 @@
 import { useEffect, useState } from 'react';
-interface IFeedback {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  upvotes: number;
-  comments?: {
-    id: number;
-    content: string;
-    user: { image: string; name: string; username: string };
-    replies?: {
-      id: number;
-      content: string;
-      replyingTo: string;
-      user: { image: string; name: string; username: string };
-    }[];
-  }[];
-}
+import { IFeedback } from '../typesInterface';
 
 const useGetProductFeedback = (productRequests: IFeedback[], cid: any) => {
   const [feedback, setFeedback] = useState<IFeedback>();
