@@ -37,7 +37,7 @@ const Feedback = () => {
         {feedback?.comments && (
           <Comments comments={feedback.comments || null} />
         )}
-        <AddCommentForm feedback={feedback} />
+        {feedback && <AddCommentForm feedback={feedback} />}
       </div>
     </div>
   );

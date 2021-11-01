@@ -25,3 +25,15 @@ export interface IFeedback {
     }[];
   }[];
 }
+
+export interface IComment {
+  id: number;
+  content: string;
+  user: { image: string; name: string; username: string };
+  replies?: {
+    id: number;
+    content: string;
+    replyingTo: string;
+    user: { image: string; name: string; username: string };
+  }[];
+}

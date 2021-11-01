@@ -1,16 +1,9 @@
 import Image from 'next/image';
 import Replies from './Replies';
+import { IComment } from '../../lib/typesInterface';
 
 interface IProps {
-  comment: {
-    content: string;
-    user: {
-      image: string;
-      name: string;
-      username: string;
-    };
-    replies?: {}[];
-  };
+  comment: IComment;
 }
 
 const SingleComment = ({ comment }: IProps) => {
