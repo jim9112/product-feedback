@@ -9,7 +9,7 @@ interface IProps {
       name: string;
       username: string;
     };
-    replies: [];
+    replies?: {}[];
   };
 }
 
