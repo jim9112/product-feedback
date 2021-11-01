@@ -1,53 +1,19 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import Button from '../global/Button';
 import { IFeedback } from '../../lib/typesInterface';
-import { currentUserState, productRequestState } from '../../lib/atoms';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import useAddComment from '../../lib/hooks/useAddComment';
 
 interface IProps {
   feedback: IFeedback;
 }
 
-interface IFormInput {
-  comment: string;
-}
-
 const AddCommentForm = ({ feedback }: IProps) => {
-  const { register, handleSubmit, watch } = useForm();
-  const currentUser = useRecoilValue(currentUserState);
-  const [feedbackState, setFeedbackState] = useRecoilState(productRequestState);
+  const { register, handleSubmit, watch, reset, formState } = useForm({
+    defaultValues: { comment: '' },
+  });
 
-  //   To Do: save form data to state
-  const onSubmit = (data: IFormInput) => {
-    // temporary object with currently selected feedback
-    const tempObj = { ...feedback };
-
-    // create new comment object with form data
-    const newComment = {
-      id: Date.now(),
-      content: data.comment,
-      user: currentUser,
-    };
-
-    // iff a comment array exisists update with new comment else create new array with comment
-    if (feedback.comments) {
-      tempObj.comments = [...feedback.comments, newComment];
-    } else {
-      tempObj.comments = [newComment];
-    }
-
-    // map feedback to a temporary array while updating comment section of current feedback
-    const tempAllFeedback = feedbackState.map((el) => {
-      if (el.id === feedback.id) {
-        return tempObj;
-      } else {
-        return el;
-      }
-    });
-
-    // update state
-    setFeedbackState(tempAllFeedback);
-  };
+  // custom hook to handle form submit
+  const onSubmit = useAddComment(feedback, formState, reset);
 
   //   watch the comment field of form to get amount of characters used
   let commentData = watch('comment', '');
