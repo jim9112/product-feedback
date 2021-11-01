@@ -15,7 +15,11 @@ const useAddLike = (feedbackID: number) => {
 
     // create temporary object with new upvote value
     const tempObj = { ...feedbackState[index] };
-    tempObj.upvotes += 1;
+    if (tempObj.upvotes) {
+      tempObj.upvotes += 1;
+    } else {
+      tempObj.upvotes = 1;
+    }
 
     // check if feature request has a list of users who upvoted it. If not create one and add current users username
     if (tempObj.upvotedby) {
