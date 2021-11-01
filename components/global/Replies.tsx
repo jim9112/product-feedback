@@ -16,7 +16,7 @@ const Replies = ({ replies }: IProps) => {
   return (
     <div className='border-l-2 border-text-grey pl-6'>
       {replies.map((reply) => (
-        <SingleComment key={reply.id} comment={reply} />
+        <SingleComment key={reply.id} comment={reply} commentType='reply' />
       ))}
     </div>
   );

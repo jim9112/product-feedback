@@ -4,9 +4,10 @@ import { IComment } from '../../lib/typesInterface';
 
 interface IProps {
   comment: IComment;
+  commentType?: 'reply' | 'comment';
 }
 
-const SingleComment = ({ comment }: IProps) => {
+const SingleComment = ({ comment, commentType = 'comment' }: IProps) => {
   return (
     <div className='py-6'>
       <div className='flex relative gap-4 mb-4'>
@@ -21,9 +22,11 @@ const SingleComment = ({ comment }: IProps) => {
             @{comment.user.username}
           </p>
         </div>
-        <div className='self-center absolute right-0 font-semibold text-text-blue text-sm cursor-pointer'>
-          Reply
-        </div>
+        {commentType === 'comment' && (
+          <div className='self-center absolute right-0 font-semibold text-text-blue text-sm cursor-pointer'>
+            Reply
+          </div>
+        )}
       </div>
       <div>
         <p className='text-text-secondary-light text-sm'>{comment.content}</p>
