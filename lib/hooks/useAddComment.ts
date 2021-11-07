@@ -13,7 +13,7 @@ const useAddComment = (
   formState: FormState<{ comment: string }>,
   reset: ({}) => void,
   commentType?: 'reply' | 'comment',
-  reply?: {} | null
+  commentId?: number
 ) => {
   // get current logged in user from state
   const currentUser = useRecoilValue(currentUserState);
@@ -44,8 +44,36 @@ const useAddComment = (
     // update state
     setFeedbackState(tempAllFeedback);
   };
-  const addReply = () => {
-    console.log(reply);
+
+  const addReply = (newComment) => {
+    const tempComments = tempObj.comments?.map((element) => {
+      if (element.id === commentId && element.replies) {
+        const newElement = { ...element };
+        newElement.replies = [...element.replies, newComment];
+        return newElement;
+      } else if (element.id === commentId && !element.replies) {
+        const newElement = { ...element };
+        newElement.replies = [newComment];
+        return newElement;
+      } else {
+        return element;
+      }
+    });
+
+    tempObj.comments = tempComments;
+
+    const tempAllFeedback = feedbackState.map((el) => {
+      if (el.id === feedback.id) {
+        return tempObj;
+      } else {
+        return el;
+      }
+    });
+
+    // update state
+    setFeedbackState(tempAllFeedback);
+    // update state
+    console.log(tempComments);
   };
 
   const onSubmit = (data: IFormInput) => {
@@ -57,8 +85,8 @@ const useAddComment = (
     };
     if (commentType === 'comment') {
       addComment(newComment);
-    } else if (commentType === 'reply' && reply) {
-      addReply();
+    } else if (commentType === 'reply') {
+      addReply(newComment);
     }
   };
 

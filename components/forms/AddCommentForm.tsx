@@ -6,12 +6,12 @@ import useAddComment from '../../lib/hooks/useAddComment';
 interface IProps {
   feedback: IFeedback;
   commentType?: 'reply' | 'comment';
-  reply?: {} | null;
+  commentId: number;
 }
 
 const AddCommentForm = ({
   feedback,
-  reply = null,
+  commentId,
   commentType = 'comment',
 }: IProps) => {
   const { register, handleSubmit, watch, reset, formState } = useForm({
@@ -24,7 +24,7 @@ const AddCommentForm = ({
     formState,
     reset,
     commentType,
-    reply
+    commentId
   );
 
   //   watch the comment field of form to get amount of characters used

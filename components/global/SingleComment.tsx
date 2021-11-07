@@ -56,7 +56,7 @@ const SingleComment = ({ comment, commentType = 'comment' }: IProps) => {
         {feedback && (
           <AddCommentForm
             feedback={feedback}
-            reply={comment}
+            commentId={comment.id}
             commentType={'reply'}
           />
         )}
