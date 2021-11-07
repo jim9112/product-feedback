@@ -5,15 +5,27 @@ import useAddComment from '../../lib/hooks/useAddComment';
 
 interface IProps {
   feedback: IFeedback;
+  commentType?: 'reply' | 'comment';
+  reply?: {} | null;
 }
 
-const AddCommentForm = ({ feedback }: IProps) => {
+const AddCommentForm = ({
+  feedback,
+  reply = null,
+  commentType = 'comment',
+}: IProps) => {
   const { register, handleSubmit, watch, reset, formState } = useForm({
     defaultValues: { comment: '' },
   });
-
+  // To Do: Add logic for replies
   // custom hook to handle form submit
-  const onSubmit = useAddComment(feedback, formState, reset);
+  const onSubmit = useAddComment(
+    feedback,
+    formState,
+    reset,
+    commentType,
+    reply
+  );
 
   //   watch the comment field of form to get amount of characters used
   let commentData = watch('comment', '');
