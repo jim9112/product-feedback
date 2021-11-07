@@ -8,6 +8,12 @@ interface IFormInput {
   comment: string;
 }
 
+interface IReplies {
+  content: string;
+  replyingTo: string;
+  user: { image: string; name: string; username: string };
+}
+
 const useAddComment = (
   feedback: IFeedback,
   formState: FormState<{ comment: string }>,
@@ -45,15 +51,17 @@ const useAddComment = (
     setFeedbackState(tempAllFeedback);
   };
 
-  const addReply = (newComment) => {
+  const addReply = (newReply: IReplies) => {
     const tempComments = tempObj.comments?.map((element) => {
       if (element.id === commentId && element.replies) {
+        newReply.replyingTo === element.user.username;
         const newElement = { ...element };
-        newElement.replies = [...element.replies, newComment];
+        newElement.replies = [...element.replies, newReply];
         return newElement;
       } else if (element.id === commentId && !element.replies) {
+        newReply.replyingTo === element.user.username;
         const newElement = { ...element };
-        newElement.replies = [newComment];
+        newElement.replies = [newReply];
         return newElement;
       } else {
         return element;
@@ -83,10 +91,16 @@ const useAddComment = (
       content: data.comment,
       user: currentUser,
     };
+    const newReply = {
+      id: Date.now(),
+      content: data.comment,
+      replyingTo: '',
+      user: currentUser,
+    };
     if (commentType === 'comment') {
       addComment(newComment);
     } else if (commentType === 'reply') {
-      addReply(newComment);
+      addReply(newReply);
     }
   };
 
