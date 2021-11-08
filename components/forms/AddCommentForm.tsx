@@ -2,17 +2,20 @@ import { useForm } from 'react-hook-form';
 import Button from '../global/Button';
 import { IFeedback } from '../../lib/typesInterface';
 import useAddComment from '../../lib/hooks/useAddComment';
+import { Dispatch, SetStateAction } from 'react';
 
 interface IProps {
   feedback: IFeedback;
   commentType?: 'reply' | 'comment';
   commentId: number;
+  setDisplayForm?: Dispatch<SetStateAction<boolean>>;
 }
 
 const AddCommentForm = ({
   feedback,
   commentId,
   commentType = 'comment',
+  setDisplayForm,
 }: IProps) => {
   const { register, handleSubmit, watch, reset, formState } = useForm({
     defaultValues: { comment: '' },
@@ -24,7 +27,8 @@ const AddCommentForm = ({
     formState,
     reset,
     commentType,
-    commentId
+    commentId,
+    setDisplayForm
   );
 
   //   watch the comment field of form to get amount of characters used

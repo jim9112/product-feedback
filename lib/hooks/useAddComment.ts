@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import { FormState } from 'react-hook-form';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { currentUserState, productRequestState } from '../atoms';
@@ -19,7 +19,8 @@ const useAddComment = (
   formState: FormState<{ comment: string }>,
   reset: ({}) => void,
   commentType?: 'reply' | 'comment',
-  commentId?: number
+  commentId?: number,
+  setFormDisplay?: Dispatch<SetStateAction<boolean>>
 ) => {
   // get current logged in user from state
   const currentUser = useRecoilValue(currentUserState);
@@ -30,6 +31,7 @@ const useAddComment = (
   // temporary object with currently selected feedback
   const tempObj = { ...feedback };
 
+  //  Called when someone comments on a feature request
   const addComment = (newComment: IComment) => {
     // if a comment array exisists update with new comment else create new array with comment
     if (feedback.comments) {
@@ -51,7 +53,9 @@ const useAddComment = (
     setFeedbackState(tempAllFeedback);
   };
 
+  // called when someone replies to a comment
   const addReply = (newReply: IReplies) => {
+    // build a new comment object that inclueds the replies
     const tempComments = tempObj.comments?.map((element) => {
       if (element.id === commentId && element.replies) {
         newReply.replyingTo === element.user.username;
@@ -70,6 +74,7 @@ const useAddComment = (
 
     tempObj.comments = tempComments;
 
+    // map feedback to a temporary array while updating comment section of current feedback
     const tempAllFeedback = feedbackState.map((el) => {
       if (el.id === feedback.id) {
         return tempObj;
@@ -80,10 +85,12 @@ const useAddComment = (
 
     // update state
     setFeedbackState(tempAllFeedback);
-    // update state
-    console.log(tempComments);
+
+    // close reply form
+    if (setFormDisplay) setFormDisplay(false);
   };
 
+  // submit function called from form
   const onSubmit = (data: IFormInput) => {
     // create new comment object with form data
     const newComment = {

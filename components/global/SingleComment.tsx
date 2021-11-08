@@ -6,6 +6,7 @@ import AddCommentForm from '../forms/AddCommentForm';
 import useGetProductFeedback from '../../lib/hooks/useGetProductFeedback';
 import { productRequestState } from '../../lib/atoms';
 import { useRecoilState } from 'recoil';
+import { useState } from 'react';
 
 interface IProps {
   comment: IComment;
@@ -16,11 +17,12 @@ const SingleComment = ({ comment, commentType = 'comment' }: IProps) => {
   // get product requests from state
   const [productRequests, setProductRequests] =
     useRecoilState(productRequestState);
+  // state that controlsif reply form is visibile
+  const [displayForm, setDisplayForm] = useState(false);
 
   // get query from router
   const router = useRouter();
   const { cid }: any = router.query;
-  console.log(cid);
 
   // get individual feedback based on selection and router query
   const { feedback } = useGetProductFeedback(productRequests, cid);
@@ -43,6 +45,7 @@ const SingleComment = ({ comment, commentType = 'comment' }: IProps) => {
           <button
             type='button'
             className='self-center absolute right-0 font-semibold text-text-blue text-sm cursor-pointer'
+            onClick={() => setDisplayForm(!displayForm)}
           >
             Reply
           </button>
@@ -53,13 +56,14 @@ const SingleComment = ({ comment, commentType = 'comment' }: IProps) => {
       </div>
       {comment.replies && <Replies replies={comment.replies} />}
       <div>
-        {feedback && (
+        {feedback && displayForm ? (
           <AddCommentForm
             feedback={feedback}
             commentId={comment.id}
             commentType={'reply'}
+            setDisplayForm={setDisplayForm}
           />
-        )}
+        ) : null}
       </div>
     </div>
   );
