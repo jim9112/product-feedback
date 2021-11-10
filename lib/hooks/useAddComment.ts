@@ -74,13 +74,14 @@ const useAddComment = (
     const tempComments = tempObj.comments?.map((element) => {
       // if comment id matches id cof comment being replied and a reply array exisits update it
       if (element.id === commentId && element.replies) {
-        newReply.replyingTo === element.user.username;
+        newReply.replyingTo = element.user.username;
         const newElement = { ...element };
         newElement.replies = [...element.replies, newReply];
         return newElement;
         // if ID matches and no reply array exsists create one and ad reply to it
       } else if (element.id === commentId && !element.replies) {
-        newReply.replyingTo === element.user.username;
+        newReply.replyingTo = element.user.username;
+        console.log(element.user.username);
         const newElement = { ...element };
         newElement.replies = [newReply];
         return newElement;

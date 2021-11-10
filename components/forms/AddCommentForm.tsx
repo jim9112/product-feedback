@@ -43,6 +43,7 @@ const AddCommentForm = ({
         <textarea
           style={{ resize: 'none' }}
           placeholder='Type your comment here'
+          autoFocus={commentType === 'reply' ? true : false}
           className='bg-text-grey text-text-secondary-light rounded-md w-full h-20 p-4'
           {...register('comment', { required: true, maxLength: 250 })}
         />

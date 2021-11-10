@@ -8,8 +8,15 @@ import { productRequestState } from '../../lib/atoms';
 import { useRecoilState } from 'recoil';
 import { useState } from 'react';
 
+interface IReplies {
+  id: number;
+  content: string;
+  replyingTo?: string;
+  replies?: [];
+  user: { image: string; name: string; username: string };
+}
 interface IProps {
-  comment: IComment;
+  comment: IReplies;
   commentType?: 'reply' | 'comment';
 }
 
@@ -51,8 +58,14 @@ const SingleComment = ({ comment, commentType = 'comment' }: IProps) => {
           </button>
         )}
       </div>
+      {/* comment content */}
       <div>
-        <p className='text-text-secondary-light text-sm'>{comment.content}</p>
+        <p className='text-text-secondary-light text-sm'>
+          {commentType === 'reply' && (
+            <span className='text-button-primary'>@{comment.replyingTo} </span>
+          )}
+          {comment.content}
+        </p>
       </div>
       {comment.replies && <Replies replies={comment.replies} />}
       <div>
