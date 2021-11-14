@@ -12,7 +12,12 @@ interface IReplies {
   id: number;
   content: string;
   replyingTo?: string;
-  replies?: [];
+  replies?: {
+    id: number;
+    content: string;
+    replyingTo: string;
+    user: { image: string; name: string; username: string };
+  }[];
   user: { image: string; name: string; username: string };
 }
 interface IProps {

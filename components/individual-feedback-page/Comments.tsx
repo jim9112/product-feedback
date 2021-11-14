@@ -2,7 +2,11 @@ import SingleComment from '../global/SingleComment';
 import { IComment } from '../../lib/typesInterface';
 
 interface IProps {
-  comments: IComment[];
+  comments: {
+    id: number;
+    content: string;
+    user: { image: string; name: string; username: string };
+  }[];
 }
 
 const Comments = ({ comments }: IProps) => {

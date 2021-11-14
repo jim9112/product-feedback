@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction } from 'react';
 interface IProps {
   feedback: IFeedback;
   commentType?: 'reply' | 'comment';
-  commentId: number;
+  commentId?: number;
   setDisplayForm?: Dispatch<SetStateAction<boolean>>;
 }
 
