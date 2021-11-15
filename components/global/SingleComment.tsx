@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Replies from './Replies';
-import { IComment } from '../../lib/typesInterface';
 import AddCommentForm from '../forms/AddCommentForm';
 import useGetProductFeedback from '../../lib/hooks/useGetProductFeedback';
 import { productRequestState } from '../../lib/atoms';

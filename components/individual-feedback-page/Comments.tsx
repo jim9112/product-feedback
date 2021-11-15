@@ -1,5 +1,4 @@
 import SingleComment from '../global/SingleComment';
-import { IComment } from '../../lib/typesInterface';
 
 interface IProps {
   comments: {
