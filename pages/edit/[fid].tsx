@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil';
 import { useRouter } from 'next/router';
 import BackButton from '../../components/global/BackButton';
 import editIcon from '../../public/shared/icon-edit-feedback.svg';
-import { useEffect } from 'react';
+import EditFeedbackForm from '../../components/forms/EditFeedbackForm';
 const FeedbackToEdit = () => {
   // get product requests from state
   const productRequests = useRecoilValue(productRequestState);
@@ -26,6 +26,7 @@ const FeedbackToEdit = () => {
             <Image src={editIcon} alt='Add Icon' width='56px' height='56px' />
           </div>
           <h1>Editing `{feedback?.title}`</h1>
+          {feedback && <EditFeedbackForm feedback={feedback} />}
         </div>
       </div>
     </div>

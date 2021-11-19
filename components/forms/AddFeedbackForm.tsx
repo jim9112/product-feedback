@@ -16,6 +16,7 @@ const AddEditFeedbackForm = () => {
     const tempRequest = feedbackData;
     const formData = data;
     formData.id = Date.now();
+    formData.status = 'suggestion';
     setFeedbackData([...tempRequest, formData]);
     console.log(formData);
     router.back();
