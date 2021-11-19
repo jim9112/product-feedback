@@ -6,6 +6,8 @@ interface IProps {
   feedback: {
     title: string;
     category: string;
+    status: string;
+    description: string;
   };
 }
 
@@ -41,42 +43,14 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
       </p>
       <select
         className='mb-6 bg-text-grey rounded-md'
+        defaultValue={feedback.category}
         {...register('category')}
       >
-        <option
-          selected={feedback.category.toLowerCase() === 'ui' ? true : false}
-          value='UI'
-        >
-          UI
-        </option>
-        <option
-          selected={feedback.category.toLowerCase() === 'ux' ? true : false}
-          value='UX'
-        >
-          UX
-        </option>
-        <option
-          selected={
-            feedback.category.toLowerCase() === 'enhancement' ? true : false
-          }
-          value='Enhancement'
-        >
-          Enhancement
-        </option>
-        <option
-          selected={feedback.category.toLowerCase() === 'bug' ? true : false}
-          value='Bug'
-        >
-          Bug
-        </option>
-        <option
-          selected={
-            feedback.category.toLowerCase() === 'feature' ? true : false
-          }
-          value='Feature'
-        >
-          Feature
-        </option>
+        <option value='ui'>UI</option>
+        <option value='ux'>UX</option>
+        <option value='enhancement'>Enhancement</option>
+        <option value='bug'>Bug</option>
+        <option value='feature'>Feature</option>
       </select>
 
       {/* Update status input */}
@@ -86,12 +60,18 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
       <p className='text-text-secondary-light text-sm mb-4'>
         Update Feature state
       </p>
-      <select className='mb-6 bg-text-grey rounded-md' {...register('status')}>
+      <select
+        defaultValue={feedback.status}
+        className='mb-6 bg-text-grey rounded-md'
+        {...register('status')}
+      >
         <option value='suggestion'>Suggestion</option>
         <option value='planned'>Planned</option>
         <option value='in-progress'>In-Progress</option>
         <option value='live'>Live</option>
       </select>
+
+      {/* Description Input */}
       <label className='text-sm text-text-secondary font-bold mb-1'>
         Feedback Detail
       </label>
@@ -101,6 +81,7 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
       <textarea
         style={{ resize: 'none' }}
         required
+        defaultValue={feedback.description}
         className='bg-text-grey mb-6 rounded-md'
         {...register('description')}
         cols={30}
