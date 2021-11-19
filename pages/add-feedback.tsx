@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import BackButton from '../components/global/BackButton';
-import AddEditFeedbackForm from '../components/forms/AddEditFeedbackForm';
+import AddEditFeedbackForm from '../components/forms/AddFeedbackForm';
 import addIcon from '../public/shared/icon-new-feedback.svg';
 
 const addFeedback = () => {

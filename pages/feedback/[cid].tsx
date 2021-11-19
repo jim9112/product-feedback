@@ -24,13 +24,15 @@ const Feedback = () => {
     <div className='bg-text-grey min-h-screen p-6 lg:py-20 lg:px-80 md:p-10'>
       <div className='mb-8 flex justify-between items-center'>
         <BackButton color='dark' />
-        <Button
-          color='lightBlue'
-          size='small'
-          type='button'
-          content='Edit Feedback'
-          cursor='pointer'
-        />
+        <div onClick={() => router.push(`/edit/${cid}`)}>
+          <Button
+            color='lightBlue'
+            size='small'
+            type='button'
+            content='Edit Feedback'
+            cursor='pointer'
+          />
+        </div>
       </div>
       <div className='flex flex-col gap-y-6'>
         {feedback && <ProductRequest request={feedback} />}
