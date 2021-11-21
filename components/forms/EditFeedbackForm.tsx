@@ -14,8 +14,8 @@ interface IProps {
 const EditFeedbackForm = ({ feedback }: IProps) => {
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = () => {
-    console.log('Submitted');
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
