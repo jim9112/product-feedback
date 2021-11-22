@@ -1,22 +1,53 @@
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { useRecoilState } from 'recoil';
 import Button from '../global/Button';
+import { productRequestState } from '../../lib/atoms';
 
 interface IProps {
   feedback: {
+    id: number;
     title: string;
     category: string;
     status: string;
     description: string;
+    upvotes?: number;
+    comments?: [];
   };
+}
+
+interface IData {
+  id: number;
+  title: string;
+  category: string;
+  status: string;
+  description: string;
+  upvotes: number;
+  comments?: [];
 }
 
 const EditFeedbackForm = ({ feedback }: IProps) => {
   const { register, handleSubmit } = useForm();
+  const [feedbackData, setFeedbackData] = useRecoilState(productRequestState);
+  const router = useRouter();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  // to do: add delete and cancel button functionality
+
+  const onSubmit = (data: IData) => {
+    const tempRequest = feedbackData.map((singleFeedback) => {
+      data.id = feedback.id;
+      data.upvotes = feedback.upvotes || 0;
+      data.comments = feedback.comments || [];
+      if (singleFeedback.id === data.id) {
+        return data;
+      } else {
+        return singleFeedback;
+      }
+    });
+    setFeedbackData(tempRequest);
+    router.back();
   };
+
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
       {/* Title Input */}
