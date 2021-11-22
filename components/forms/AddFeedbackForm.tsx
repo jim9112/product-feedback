@@ -67,13 +67,27 @@ const AddEditFeedbackForm = () => {
         rows={5}
       ></textarea>
       <div className='flex flex-col gap-y-4'>
-        <Button
-          type='submit'
-          content='Add Feedback'
-          color='primary'
-          size='small'
-        />
-        <Button type='button' content='Cancel' color='secondary' size='small' />
+        <div className='w-full md:w-max'>
+          <Button
+            type='submit'
+            content='Save Changes'
+            color='primary'
+            size='small'
+          />
+        </div>
+        <div
+          className='w-full md:w-max'
+          onClick={() => {
+            router.back();
+          }}
+        >
+          <Button
+            type='button'
+            content='Cancel'
+            color='secondary'
+            size='small'
+          />
+        </div>
       </div>
     </form>
   );
