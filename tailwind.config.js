@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     colors: {
       'button-primary': '#AD1FEA',
+      'button-red': '#D73737',
       'text-white': '#FFFFFF',
       'text-grey': '#F2F4FE',
       'text-secondary': '#3A4374',

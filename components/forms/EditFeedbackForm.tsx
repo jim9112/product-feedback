@@ -48,6 +48,21 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
     router.back();
   };
 
+  // to do add confirmation popup for deleting feedback
+  // event handler for delete button
+  const onDelete = () => {
+    const listWithoutDeletedFeedback = feedbackData.filter(
+      (individualFeedback) => {
+        if (individualFeedback.id !== feedback.id) {
+          return individualFeedback;
+        }
+      }
+    );
+    setFeedbackData(listWithoutDeletedFeedback);
+    router.push('/');
+    console.log('deleted');
+  };
+
   return (
     <form className='grid grid-flow-row' onSubmit={handleSubmit(onSubmit)}>
       {/* Title Input */}
@@ -119,13 +134,30 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
         rows={5}
       ></textarea>
       <div className='flex flex-col gap-y-4'>
-        <Button
-          type='submit'
-          content='Save Changes'
-          color='primary'
-          size='small'
-        />
-        <Button type='button' content='Cancel' color='secondary' size='small' />
+        <div className='w-full md:w-max'>
+          <Button
+            type='submit'
+            content='Save Changes'
+            color='primary'
+            size='small'
+          />
+        </div>
+        <div
+          className='w-full md:w-max'
+          onClick={() => {
+            router.back();
+          }}
+        >
+          <Button
+            type='button'
+            content='Cancel'
+            color='secondary'
+            size='small'
+          />
+        </div>
+        <div className='w-full md:w-max' onClick={onDelete}>
+          <Button type='button' content='Delete' color='red' size='small' />
+        </div>
       </div>
     </form>
   );

@@ -3,7 +3,7 @@ import router, { useRouter } from 'next/router';
 interface IProps {
   type: 'button' | 'submit';
   content: string;
-  color: 'primary' | 'secondary' | 'lightBlue';
+  color: 'primary' | 'secondary' | 'lightBlue' | 'red';
   cursor?: 'default' | 'pointer';
   size: 'small';
   clickAction?: 'addFeedback';
@@ -18,13 +18,14 @@ const styles = {
     primary: 'bg-button-primary',
     secondary: 'bg-text-secondary',
     lightBlue: 'bg-text-blue',
+    red: 'bg-button-red',
   },
   cursor: {
     pointer: 'cursor-pointer',
     default: 'cursor-default',
   },
   size: {
-    small: 'text-sm h-10 px-4',
+    small: 'text-sm w-full md:w-max h-10 px-4',
   },
 };
 
