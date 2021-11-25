@@ -133,7 +133,7 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
         cols={30}
         rows={5}
       ></textarea>
-      <div className='flex flex-col gap-y-4'>
+      <div className='flex flex-col md:flex-row gap-y-4'>
         <div className='w-full md:w-max'>
           <Button
             type='submit'

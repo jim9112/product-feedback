@@ -28,8 +28,6 @@ const useAddLike = (feedbackID: number) => {
       tempObj.upvotedby = [currentUser.username];
     }
 
-    console.log(tempObj);
-
     // map feedbackstate into temp array replacing edited feature request with edited temp object
     const tempArr = feedbackState.map((feedback, i) =>
       i === index ? tempObj : feedback
