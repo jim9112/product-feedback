@@ -133,17 +133,18 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
         cols={30}
         rows={5}
       ></textarea>
-      <div className='flex flex-col md:flex-row gap-y-4'>
+      <div className='flex flex-col md:flex-row-reverse md:justify-between gap-y-4'>
         <div className='w-full md:w-max'>
           <Button
             type='submit'
             content='Save Changes'
             color='primary'
             size='small'
+            cursor='pointer'
           />
         </div>
         <div
-          className='w-full md:w-max'
+          className='w-full md:w-max md:pr-4'
           onClick={() => {
             router.back();
           }}
@@ -153,10 +154,17 @@ const EditFeedbackForm = ({ feedback }: IProps) => {
             content='Cancel'
             color='secondary'
             size='small'
+            cursor='pointer'
           />
         </div>
-        <div className='w-full md:w-max' onClick={onDelete}>
-          <Button type='button' content='Delete' color='red' size='small' />
+        <div className='w-full' onClick={onDelete}>
+          <Button
+            type='button'
+            content='Delete'
+            color='red'
+            size='small'
+            cursor='pointer'
+          />
         </div>
       </div>
     </form>
