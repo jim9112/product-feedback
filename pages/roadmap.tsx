@@ -14,32 +14,34 @@ const Roadmap = () => {
   >('progress');
 
   return (
-    <div className='bg-text-grey min-h-screen lg:px-44 lg:py-20'>
-      {/* page header */}
-      <RoadmapHeader />
-      {/* heading/mobile menu for roadmap status display */}
-      <RoadmapSelection
-        roadmapState={roadmapState}
-        setDisplayCategoryState={setDisplayCategoryState}
-        displayCategoryState={displayCategoryState}
-      />
-      {/* displays all of the feedback that is tagged as 'planned', 'live', or in progress */}
-      <div className='text-text-secondary grid grid-cols-1 md:grid-cols-3 px-6 pt-6'>
-        <RoadmapSingleCategory
-          category='planned'
-          displayCategoryState={displayCategoryState}
+    <div className='bg-text-grey'>
+      <div className=' min-h-screen lg:px-44 lg:py-20 xl:max-w-[1110px] xl:m-auto xl:px-0'>
+        {/* page header */}
+        <RoadmapHeader />
+        {/* heading/mobile menu for roadmap status display */}
+        <RoadmapSelection
           roadmapState={roadmapState}
-        />
-        <RoadmapSingleCategory
-          category='progress'
+          setDisplayCategoryState={setDisplayCategoryState}
           displayCategoryState={displayCategoryState}
-          roadmapState={roadmapState}
         />
-        <RoadmapSingleCategory
-          category='live'
-          displayCategoryState={displayCategoryState}
-          roadmapState={roadmapState}
-        />
+        {/* displays all of the feedback that is tagged as 'planned', 'live', or in progress */}
+        <div className='text-text-secondary grid grid-cols-1 md:gap-x-3 xl:gap-x-7 md:grid-cols-3 px-6 pt-6 md:px-0'>
+          <RoadmapSingleCategory
+            category='planned'
+            displayCategoryState={displayCategoryState}
+            roadmapState={roadmapState}
+          />
+          <RoadmapSingleCategory
+            category='progress'
+            displayCategoryState={displayCategoryState}
+            roadmapState={roadmapState}
+          />
+          <RoadmapSingleCategory
+            category='live'
+            displayCategoryState={displayCategoryState}
+            roadmapState={roadmapState}
+          />
+        </div>
       </div>
     </div>
   );

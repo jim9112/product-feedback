@@ -6,7 +6,7 @@ const RoadmapHeader = () => {
     <header className='bg-bg-dark px-5 py-6 flex justify-between'>
       <div>
         <BackButton color='light' />
-        <h1 className='text-text-white font-bold text-lg'>Roadmap Page</h1>
+        <h1 className='text-text-white font-bold text-lg'>Roadmap</h1>
       </div>
       <Button
         type='button'

@@ -24,19 +24,21 @@ const RoadmapSelection = ({
   displayCategoryState,
 }: IProps) => {
   return (
-    <div className='text-text-secondary grid grid-cols-3 text-center pt-5 border-b-2 border-text-secondary-light'>
+    <div className='text-text-secondary grid grid-cols-3 text-center md:text-left pt-5 border-b-2 md:border-b-0 border-text-secondary-light'>
       <div
         className={`${
           displayCategoryState === 'planned' ? styles.planned : ''
         } md:border-b-0 pb-5`}
       >
         <h2
-          className='cursor-pointer md:pointer-events-none'
+          className='cursor-pointer md:pointer-events-none font-bold'
           onClick={() => setDisplayCategoryState('planned')}
         >
           Planned ({roadmapState?.planned.length})
         </h2>
-        <p className='hidden md:inline'>Ideas prioritized for research</p>
+        <p className='hidden md:inline text-text-secondary-light'>
+          Ideas prioritized for research
+        </p>
       </div>
       <div
         className={`${
@@ -44,12 +46,14 @@ const RoadmapSelection = ({
         } md:border-b-0 pb-5`}
       >
         <h2
-          className='cursor-pointer md:pointer-events-none'
+          className='cursor-pointer md:pointer-events-none font-bold'
           onClick={() => setDisplayCategoryState('progress')}
         >
           In-Progress ({roadmapState?.progress.length})
         </h2>
-        <p className='hidden md:inline'>Currently being developed</p>
+        <p className='hidden md:inline text-text-secondary-light'>
+          Currently being developed
+        </p>
       </div>
       <div
         className={`${
@@ -57,12 +61,14 @@ const RoadmapSelection = ({
         } md:border-b-0 pb-5`}
       >
         <h2
-          className='cursor-pointer md:pointer-events-none'
+          className='cursor-pointer md:pointer-events-none font-bold'
           onClick={() => setDisplayCategoryState('live')}
         >
           Live ({roadmapState?.live.length})
         </h2>
-        <p className='hidden md:inline'>Released features</p>
+        <p className='hidden md:inline text-text-secondary-light'>
+          Released features
+        </p>
       </div>
     </div>
   );
