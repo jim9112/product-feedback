@@ -21,25 +21,27 @@ const Feedback = () => {
   const { feedback } = useGetProductFeedback(productRequests, cid);
 
   return (
-    <div className='bg-text-grey min-h-screen p-6 lg:py-20 lg:px-80 md:p-10'>
-      <div className='mb-8 flex justify-between items-center'>
-        <BackButton color='dark' />
-        <div onClick={() => router.push(`/edit/${cid}`)}>
-          <Button
-            color='lightBlue'
-            size='small'
-            type='button'
-            content='Edit Feedback'
-            cursor='pointer'
-          />
+    <div className='bg-text-grey'>
+      <div className=' min-h-screen p-6 lg:py-20 lg:px-80 md:p-10 xl:m-auto xl:max-w-[650px] xl:px-0'>
+        <div className='mb-8 flex justify-between items-center'>
+          <BackButton color='dark' />
+          <div onClick={() => router.push(`/edit/${cid}`)}>
+            <Button
+              color='lightBlue'
+              size='small'
+              type='button'
+              content='Edit Feedback'
+              cursor='pointer'
+            />
+          </div>
         </div>
-      </div>
-      <div className='flex flex-col gap-y-6'>
-        {feedback && <ProductRequest request={feedback} />}
-        {feedback?.comments && (
-          <Comments comments={feedback.comments || null} />
-        )}
-        {feedback && <AddCommentForm feedback={feedback} />}
+        <div className='flex flex-col gap-y-6'>
+          {feedback && <ProductRequest request={feedback} />}
+          {feedback?.comments && (
+            <Comments comments={feedback.comments || null} />
+          )}
+          {feedback && <AddCommentForm feedback={feedback} />}
+        </div>
       </div>
     </div>
   );

@@ -56,6 +56,7 @@ const AddCommentForm = ({
             size='small'
             color='primary'
             content='Post Comment'
+            cursor='pointer'
           />
         </div>
       </form>
