@@ -12,7 +12,16 @@ interface IProps {
     status: string;
     description: string;
     upvotes?: number;
-    comments?: [];
+    comments?: {
+      id: number;
+      content: string;
+      user: { image: string; name: string; username: string };
+      replies?: {
+        content: string;
+        replyingTo: string;
+        user: { image: string; name: string; username: string };
+      }[];
+    }[];
   };
 }
 
@@ -23,7 +32,16 @@ interface IData {
   status: string;
   description: string;
   upvotes: number;
-  comments?: [];
+  comments?: {
+    id: number;
+    content: string;
+    user: { image: string; name: string; username: string };
+    replies?: {
+      content: string;
+      replyingTo: string;
+      user: { image: string; name: string; username: string };
+    }[];
+  }[];
 }
 
 const EditFeedbackForm = ({ feedback }: IProps) => {
