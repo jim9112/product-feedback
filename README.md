@@ -1,3 +1,9 @@
+This is a project built using a design from Front End Mentor. Provided a design file and a JSON file with data to use, the goal was to create a project feedback appliction. I created this application using Next.JS, Tailwind CSS, and Recoil.JS. You have the ability to add feedback, comment on feedback, reply to other comments, "like" feedback, and to sort and filter the feedback that is displayed. The data does not persist so any added comments will disapear on refresh. Enjoy!!
+
+Live site: [Product Feedback App](https://product-feedback-puce.vercel.app/)
+
+Submission on Front End Mentor: [Product Feedback Submision](https://www.frontendmentor.io/solutions/product-feedback-app-front-end-using-nextjs-tailwind-css-recoiljs-yirpaX_WL)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -9,26 +15,3 @@ npm run dev
 # or
 yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
