@@ -2,7 +2,7 @@ This is a project built using a design from Front End Mentor. Provided a design 
 
 Live site: [Product Feedback App](https://product-feedback-puce.vercel.app/)
 
-Submission on Front End Mentor: [Product Feedback Submision](https://www.frontendmentor.io/solutions/product-feedback-app-front-end-using-nextjs-tailwind-css-recoiljs-yirpaX_WL)
+Submission on Front End Mentor: [Product Feedback Submission](https://www.frontendmentor.io/solutions/product-feedback-app-front-end-using-nextjs-tailwind-css-recoiljs-yirpaX_WL)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
